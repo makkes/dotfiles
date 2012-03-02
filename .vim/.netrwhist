@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/max/dev/toro/.git'
+let g:netrw_dirhist_2='/home/max/dev/cathoo-profiling/sensor-viewer/META-INF'
+let g:netrw_dirhist_3='/home/max/dev/toro/src/java/com/freiheit/toro/documents'
+let g:netrw_dirhist_4='/home/max/dev/toro/src/java/com/freiheit/toro/documents/business'
+let g:netrw_dirhist_5='/home/max/dev/toro'
+let g:netrw_dirhist_6='/home/max/dev/juco/etc/authorization'
+let g:netrw_dirhist_7='/etc/ca-certificates'
