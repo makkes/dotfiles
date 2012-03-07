@@ -18,3 +18,5 @@ nmap <C-j> :tabprev<CR>
 inoremap <F4> <c-o>:w<cr>
 auto Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 :let NERDTreeQuitOnOpen=1
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=magenta
