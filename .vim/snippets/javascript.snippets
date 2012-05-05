@@ -78,3 +78,17 @@ snippet query
 # Add event listener
 snippet addel
 	addEventListener('${1:}', ${2:function(ev) {}});
+snippet boot
+	/*global window, document, console */
+	
+	var App = (function () {
+	    "use strict";
+	    
+	    function init() {
+	        ${1:}
+	    }
+
+	    return {
+	        init: init
+	    };
+	}());
