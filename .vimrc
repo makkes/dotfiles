@@ -11,6 +11,7 @@ set tw=70
 set pastetoggle=<F3>
 set mouse=a
 set ignorecase
+set number
 noremap <C-n> :tabn<CR>
 noremap <F3> :NERDTreeToggle<CR>
 nmap <C-k> :tabnext<CR>
