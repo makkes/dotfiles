@@ -46,7 +46,7 @@ EOF
 
 " Generate tags with: ctags -R -f ~/.vim/tags/python24.ctags /usr/lib/python2.4/
 " ctrl-[ to go to the tag under the cursor, ctrl-T to go back.
-set tags+=$HOME/.vim/tags/python24.ctags
+set tags+=$HOME/.vim/tags/python27.ctags
 
 " Use :make to see syntax errors. (:cn and :cp to move around, :dist to see
 " all errors)
