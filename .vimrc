@@ -8,7 +8,6 @@ filetype plugin on
 filetype indent on
 set autoindent
 set tw=70
-set pastetoggle=<F3>
 set mouse=a
 set ignorecase
 set number
@@ -18,7 +17,7 @@ nmap <C-k> :tabnext<CR>
 nmap <C-j> :tabprev<CR>
 nmap <F4> :tabclose<CR>
 "inoremap <F4> <c-o>:w<cr>
-auto Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+auto Filetype html,htmldjango,xml,xsl source ~/.vim/scripts/closetag.vim
 :let NERDTreeQuitOnOpen=0
 hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=magenta
