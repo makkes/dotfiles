@@ -1,11 +1,13 @@
+filetype off
 call pathogen#infect()
+call pathogen#helptags()
+filetype plugin indent on
+syntax on
 set background=dark
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 set smarttab
-filetype plugin on
-filetype indent on
 set autoindent
 set tw=79
 set mouse=a
