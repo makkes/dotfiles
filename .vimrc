@@ -39,4 +39,4 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " Always display the status line, even if only one window is displayed
 set laststatus=2
 " Show full file path in status line
-set statusline+="%F %l"
+set statusline=%<\ %n:%F\ %m%r%y\ %=line\ %l/%L,\ col\ %c%V
