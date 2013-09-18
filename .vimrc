@@ -27,6 +27,8 @@ hi SpellBad cterm=underline,bold ctermfg=magenta
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+au BufRead,BufNewFile *.jsm setfiletype javascript
+
 let g:Tex_DefaultTargetFormat='pdf'
 
 let g:syntastic_auto_jump=1
