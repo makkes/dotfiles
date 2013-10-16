@@ -32,9 +32,8 @@ myManageHook = composeAll
     <+>
     composeOne [ isFullscreen -?> doFullFloat ]
 
---defaultLayouts = smartBorders( desktopLayoutModifiers (Tall 1 (3/100) (1/2) ||| noBorders Full ||| Grid) )
-
-defaultLayouts = smartBorders( desktopLayoutModifiers (Tall 1 (3/100) (1/2) ||| noBorders Full) )
+defaultLayouts = smartBorders( desktopLayoutModifiers (Tall 1 (3/100) (1/2) ||| noBorders Full ||| Grid) )
+--defaultLayouts = smartBorders( desktopLayoutModifiers (Tall 1 (3/100) (1/2) ||| noBorders Full) )
 
 {-
 myLayouts = (fullscreenFloat . fullscreenFull) $ defaultLayouts $ minimize $ layoutHook gnomeConfig
@@ -46,7 +45,7 @@ main = xmonad $ gnomeConfig {
     manageHook = myManageHook <+> fullscreenManageHook,
     layoutHook = myLayouts,
     handleEventHook = handleEventHook gnomeConfig <+> fullscreenEventHook <+> minimizeEventHook,
-    workspaces = ["web", "chat", "mail", "media", "offshore"]
+    workspaces = ["web", "chat", "mail", "offshore", "media"]
     } 
     `additionalKeys`
         [ ((myModMask, xK_m), withFocused minimizeWindow)
