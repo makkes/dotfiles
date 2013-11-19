@@ -23,7 +23,7 @@ myManageHook = composeAll
     , className =? "Screenruler" --> doFloat
     , className =? "Firefox" --> doF (W.shift "web")
     , className =? "Chromium-browser" --> doF (W.shift "web")
-    , className =? "Gajim" --> doF (W.shift "chat")
+    , className =? "Pidgin" --> doF (W.shift "chat")
     , className =? "Skype" --> doF (W.shift "chat")
     , className =? "Thunderbird" --> doF (W.shift "mail")
     , className =? "Rhythmbox" --> doF (W.shift "media")
@@ -50,8 +50,8 @@ main = xmonad $ gnomeConfig {
     `additionalKeys`
         [ ((myModMask, xK_m), withFocused minimizeWindow)
         , ((myModMask .|. shiftMask, xK_m), sendMessage RestoreNextMinimizedWin) 
-        , ((myModMask, xK_adiaeresis), nextWS)
-        , ((myModMask, xK_odiaeresis), prevWS)
+        , ((myModMask, xK_semicolon), prevWS)
+        , ((myModMask, xK_apostrophe), nextWS)
         , ((myModMask .|. shiftMask, xK_adiaeresis), shiftToNext)
         , ((myModMask .|. shiftMask, xK_odiaeresis), shiftToPrev)
         ]
