@@ -13,6 +13,7 @@ set tw=79
 set mouse=a
 set ignorecase
 set number
+nnoremap <C-?> :lnext<CR>
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-k> :tabprev<CR>
 nnoremap <F3> :NERDTreeTabsToggle<CR>
@@ -31,8 +32,9 @@ au BufRead,BufNewFile *.jsm setfiletype javascript
 
 let g:Tex_DefaultTargetFormat='pdf'
 
-let g:syntastic_auto_jump=1
-let g:syntastic_check_on_open=1
+let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_auto_jump=0
+let g:syntastic_check_on_open=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
@@ -42,3 +44,4 @@ let g:syntastic_mode_map = { 'mode': 'active',
 set laststatus=2
 " Show full file path in status line
 set statusline=%<\ %n:%F\ %m%r%y\ %=line\ %l/%L,\ col\ %c%V
+set modeline
