@@ -3,6 +3,8 @@ call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 syntax on
+set t_Co=256
+colorscheme distinguished
 set background=dark
 set expandtab
 set shiftwidth=4
@@ -13,6 +15,15 @@ set tw=79
 set mouse=a
 set ignorecase
 set number
+command! RemoveDuplicateWhitespaces 1,$s/\([^ ]\)   */\1 /ge
+inoremap <C-r><C-d> <C-o>:RemoveDuplicateWhitespaces<CR>
+nnoremap <C-r><C-d> :RemoveDuplicateWhitespaces<CR>
+inoremap <C-c> <CR><Esc>O
+inoremap <silent> <C-s> <C-o>:w<CR>
+inoremap <Down> <C-o>g<Down>
+inoremap <Up> <C-o>g<Up>
+nnoremap <Down> g<Down>
+nnoremap <Up> g<Up>
 nnoremap <C-?> :lnext<CR>
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-k> :tabprev<CR>
@@ -30,7 +41,13 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 au BufRead,BufNewFile *.jsm setfiletype javascript
 
-let g:Tex_DefaultTargetFormat='pdf'
+" latex-suite stuff
+let g:Tex_DefaultTargetFormat='all'
+let g:Tex_FoldedSections=''
+let g:Tex_FoldedEnvironments=''
+let g:Tex_FoldedCommands=''
+let g:Tex_FoldedMisc=''
+set grepprg=grep\ -nH\ $*
 
 let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_auto_jump=0
@@ -45,3 +62,4 @@ set laststatus=2
 " Show full file path in status line
 set statusline=%<\ %n:%F\ %m%r%y\ %=line\ %l/%L,\ col\ %c%V
 set modeline
+
