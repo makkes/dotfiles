@@ -15,6 +15,7 @@ set tw=79
 set mouse=a
 set ignorecase
 set number
+set hidden
 command! RemoveDuplicateWhitespaces 1,$s/\([^ ]\)   */\1 /ge
 inoremap <C-r><C-d> <C-o>:RemoveDuplicateWhitespaces<CR>
 nnoremap <C-r><C-d> :RemoveDuplicateWhitespaces<CR>
