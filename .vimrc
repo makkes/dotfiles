@@ -17,6 +17,8 @@ set ignorecase
 set number
 set hidden
 command! RemoveDuplicateWhitespaces 1,$s/\([^ ]\)   */\1 /ge
+autocmd FileType javascript,css nmap <silent> ,; :call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css inoremap <silent> ,; <ESC>:call cosco#commaOrSemiColon()<CR>a
 inoremap <C-r><C-d> <C-o>:RemoveDuplicateWhitespaces<CR>
 nnoremap <C-r><C-d> :RemoveDuplicateWhitespaces<CR>
 inoremap <C-c> <CR><Esc>O
@@ -42,6 +44,9 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 au BufRead,BufNewFile *.jsm setfiletype javascript
 
+" Command-T stuff
+let g:CommandTWildIgnore=&wildignore . ",**/node_modules/*"
+
 " latex-suite stuff
 let g:Tex_DefaultTargetFormat='all'
 let g:Tex_FoldedSections=''
@@ -55,7 +60,7 @@ let g:syntastic_auto_jump=0
 let g:syntastic_check_on_open=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
+                           \ 'active_filetypes': ['javascript'],
                            \ 'passive_filetypes': ['c'] }
 
 " Always display the status line, even if only one window is displayed
@@ -63,4 +68,3 @@ set laststatus=2
 " Show full file path in status line
 set statusline=%<\ %n:%F\ %m%r%y\ %=line\ %l/%L,\ col\ %c%V
 set modeline
-
