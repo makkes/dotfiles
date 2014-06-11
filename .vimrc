@@ -16,6 +16,8 @@ set mouse=a
 set ignorecase
 set number
 set hidden
+set dict+=/usr/share/dict/british-english,/usr/share/dict/ngerman
+set complete+=k
 command! RemoveDuplicateWhitespaces 1,$s/\([^ ]\)   */\1 /ge
 autocmd FileType javascript,css nmap <silent> ,; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css inoremap <silent> ,; <ESC>:call cosco#commaOrSemiColon()<CR>a
