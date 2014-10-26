@@ -39,8 +39,12 @@ nnoremap <F4> :bd<CR>
 nnoremap <silent> <F9> :TagbarToggle<CR>
 auto Filetype html,htmldjango,xml,xsl source ~/.vim/scripts/closetag.vim
 :let NERDTreeQuitOnOpen=0
+
+" Highlighting
 hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=magenta
+hi TabLineSel ctermfg=Red ctermbg=Black
+
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
