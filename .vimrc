@@ -29,7 +29,6 @@ inoremap <Down> <C-o>g<Down>
 inoremap <Up> <C-o>g<Up>
 nnoremap <Down> g<Down>
 nnoremap <Up> g<Up>
-nnoremap <C-?> :lnext<CR>
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-k> :tabprev<CR>
 nnoremap <F3> :NERDTreeTabsToggle<CR>
@@ -54,7 +53,7 @@ au BufRead,BufNewFile *.jsm setfiletype javascript
 let g:CommandTWildIgnore=&wildignore . ",**/node_modules/*"
 
 " latex-suite stuff
-let g:Tex_DefaultTargetFormat='all'
+let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_FoldedSections=''
 let g:Tex_FoldedEnvironments=''
 let g:Tex_FoldedCommands=''
