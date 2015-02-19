@@ -23,12 +23,9 @@ if version < 600 && exists("javaScript_fold")
 	unlet javaScript_fold
 endif
 
-"" dollar sign is permitted anywhere in an identifier
-setlocal iskeyword+=$
-
 "" Remove dollar sign from identifier when embedded in a PHP file
-if &filetype == 'php'
-	setlocal iskeyword-=$
+if &filetype == 'javascript'
+	setlocal iskeyword+=$
 endif
 
 syntax sync fromstart
@@ -96,8 +93,8 @@ syntax case match
 "}}}
 " Strings, Numbers and Regex Highlight {{{
 syntax match   javaScriptSpecial          "\\\d\d\d\|\\."
-syntax region  javaScriptString           start=+"+  skip=+\\\\\|\\"+  end=+"\|$+	contains=javaScriptSpecial,@htmlPreproc
-syntax region  javaScriptString           start=+'+  skip=+\\\\\|\\'+  end=+'\|$+	contains=javaScriptSpecial,@htmlPreproc
+syntax region  javaScriptString	          start=+"+  skip=+\\\\\|\\"+  end=+"\|$+	contains=javaScriptSpecial,@htmlPreproc
+syntax region  javaScriptString	          start=+'+  skip=+\\\\\|\\'+  end=+'\|$+	contains=javaScriptSpecial,@htmlPreproc
 
 syntax match   javaScriptSpecialCharacter "'\\.'"
 syntax match   javaScriptNumber           "-\=\<\d\+L\=\>\|0[xX][0-9a-fA-F]\+\>"
