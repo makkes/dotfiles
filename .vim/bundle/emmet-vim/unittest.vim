@@ -1,28 +1,29 @@
+" {{{
 let s:sfile = expand('<sfile>')
 
 function! s:reload(d)
-  exe "so" a:d."/plugin/zencoding.vim"
+  exe 'so' a:d.'/plugin/emmet.vim'
   for f in split(globpath(a:d, 'autoload/**/*.vim'), "\n")
-    silent! exe "so" f
+    silent! exe 'so' f
   endfor
 endfunction
 
 function! s:show_type(type)
-  echohl Search | echon "[" a:type "]\n" | echohl None
+  echohl Search | echon '[' a:type "]\n" | echohl None
   echo "\r"
 endfunction
 
 function! s:show_category(category)
-  echohl MatchParen | echon "[" a:category "]\n" | echohl None
+  echohl MatchParen | echon '[' a:category "]\n" | echohl None
   echo "\r"
 endfunction
 
 function! s:show_pass(pass)
-  echohl Title | echo "pass".a:pass."\n" | echohl None
+  echohl Title | echo 'pass'.a:pass."\n" | echohl None
 endfunction
 
 function! s:show_done()
-  echohl IncSearch | echo "done" | echohl None
+  echohl IncSearch | echo 'done' | echohl None
 endfunction
 
 function! s:escape(str)
@@ -35,43 +36,43 @@ endfunction
 function! s:show_title(no, title)
   let title = s:escape(a:title)
   let width = &columns - 23
-  echohl MoreMsg | echon "\rtesting #".printf("%03d", a:no)
-  echohl None | echon ": " . (len(title) < width ? (title.repeat(' ', width-len(title))) : strpart(title, 0, width)) . ' ... '
+  echohl MoreMsg | echon "\rtesting #".printf('%03d', a:no)
+  echohl None | echon ': ' . (len(title) < width ? (title.repeat(' ', width-len(title))) : strpart(title, 0, width)) . ' ... '
 endfunction
 
 function! s:show_skip(no, title)
   let title = s:escape(a:title)
   let width = &columns - 23
-  echohl WarningMsg | echon "\rskipped #".printf("%03d", a:no)
-  echohl None | echon ": " . (len(title) < width ? (title.repeat(' ', width-len(title))) : strpart(title, 0, width)) . ' ... '
-  echo ""
+  echohl WarningMsg | echon "\rskipped #".printf('%03d', a:no)
+  echohl None | echon ': ' . (len(title) < width ? (title.repeat(' ', width-len(title))) : strpart(title, 0, width)) . ' ... '
+  echo ''
 endfunction
 
 function! s:show_ok()
   echohl Title | echon "ok\n" | echohl None
-  echo ""
+  echo ''
 endfunction
 
 function! s:show_ng(no, expect, got)
   echohl WarningMsg | echon "ng\n" | echohl None
-  echohl ErrorMsg | echo "failed test #".a:no | echohl None
+  echohl ErrorMsg | echo 'failed test #'.a:no | echohl None
   set more
-  echohl WarningMsg | echo printf("expect(%d):", len(a:expect)) | echohl None
+  echohl WarningMsg | echo printf('expect(%d):', len(a:expect)) | echohl None
   echo join(split(a:expect, "\n", 1), "|\n")
-  echohl WarningMsg | echo printf("got(%d):", len(a:got)) | echohl None
+  echohl WarningMsg | echo printf('got(%d):', len(a:got)) | echohl None
   echo join(split(a:got, "\n", 1), "|\n")
   let cs = split(a:expect, '\zs')
   for c in range(len(cs))
     if c < len(a:got)
       if a:expect[c] != a:got[c]
-        echohl WarningMsg | echo "differ at:" | echohl None
+        echohl WarningMsg | echo 'differ at:' | echohl None
         echo a:expect[c :-1]
         break
       endif
     endif
   endfor
-  echo ""
-  throw "stop"
+  echo ''
+  throw 'stop'
 endfunction
 
 function! s:test(...)
@@ -91,14 +92,22 @@ function! s:test(...)
       for n in range(len(tests))
         if len(index) > 0 && n != index | continue | endif
         let query = tests[n].query
+        let options = has_key(tests[n], 'options') ? tests[n].options : {}
         let result = tests[n].result
         if has_key(tests[n], 'skip') && tests[n].skip != 0
           call s:show_skip(n+1, query)
           continue
         endif
+        let oldoptions = {}
+        for opt in keys(options)
+          if has_key(g:, opt)
+            let oldoptions[opt] = get(g:, opt)
+          endif
+          let g:[opt] = options[opt]
+        endfor
         if stridx(query, '$$$$') != -1
           silent! 1new
-          silent! exe "setlocal ft=".testgroup.type
+          silent! exe 'setlocal ft='.testgroup.type
           silent! let key = matchstr(query, '.*\$\$\$\$\zs.*\ze\$\$\$\$')
           if len(key) > 0
             exe printf('let key = "%s"', key)
@@ -117,8 +126,15 @@ function! s:test(...)
           call s:show_title(n+1, query)
         else
           call s:show_title(n+1, query)
-          unlet! res | let res = zencoding#ExpandWord(query, testgroup.type, 0)
+          unlet! res | let res = emmet#expandWord(query, testgroup.type, 0)
         endif
+        for opt in keys(options)
+          if has_key(oldoptions, opt)
+            let g:[opt] = oldoptions[opt]
+          else
+            call remove(g:, opt)
+          endif
+        endfor
         if stridx(result, '$$$$') != -1
           if res ==# result
             call s:show_ok()
@@ -140,10 +156,10 @@ endfunction
 
 function! s:do_tests(...)
   try
-    if exists('g:user_zen_settings')
-      let s:old_user_zen_settings = g:user_zen_settings
-      let g:user_zen_settings = { 'indentation': "\t" }
+    if exists('g:user_emmet_settings')
+      let s:old_user_emmet_settings = g:user_emmet_settings
     endif
+    let g:user_emmet_settings = {'variables': {'indentation': "\t", 'use_selection': 1}}
     let oldmore = &more
     call s:reload(fnamemodify(s:sfile, ':h'))
     let &more = 0
@@ -153,13 +169,13 @@ function! s:do_tests(...)
     echohl ErrorMsg | echomsg v:exception | echohl None
   finally
     let &more=oldmore
-    if exists('g:user_zen_settings')
-      let g:user_zen_settings = s:old_user_zen_settings
+    if exists('s:old_user_emmet_settings')
+      let g:user_emmet_settings = s:old_user_emmet_settings
     endif
   endtry
 endfunction
 
-function! g:zencoding_unittest_complete(arglead, cmdline, cmdpos)
+function! s:emmet_unittest_complete(arglead, cmdline, cmdpos)
   let args = split(a:cmdline, '\s\+', 1)
   let testgroups = eval(join(filter(split(substitute(join(readfile(s:sfile), "\n"), '.*\nfinish\n', '', ''), '\n', 1), "v:val !~ '^\"'")))
   try
@@ -173,14 +189,15 @@ function! g:zencoding_unittest_complete(arglead, cmdline, cmdpos)
   return []
 endfunction
 
-command! -nargs=* -complete=customlist,g:zencoding_unittest_complete ZenCodingUnitTest call s:do_tests(<f-args>)
+command! -nargs=* -complete=customlist,<SID>emmet_unittest_complete EmmetUnitTest call s:do_tests(<f-args>)
 if s:sfile == expand('%:p')
-  ZenCodingUnitTest
+  EmmetUnitTest
 endif
+" }}}
 
 finish
 [
-{
+{ 'test-html': "{{{",
   'type': "html",
   'categories': [
     {
@@ -212,7 +229,7 @@ finish
         },
         {
           'query': "div#wrapper.box.current[title=TITLE rel]",
-          'result': "<div id=\"wrapper\" rel=\"\" class=\"box current\" title=\"TITLE\"></div>\n",
+          'result': "<div id=\"wrapper\" class=\"box current\" title=\"TITLE\" rel=\"\"></div>\n",
         },
         {
           'query': "div#main+div#sub",
@@ -248,15 +265,15 @@ finish
         },
         {
           'query': "a[href=http://www.google.com/].foo#hoge",
-          'result': "<a id=\"hoge\" href=\"http://www.google.com/\" class=\"foo\"></a>\n",
+          'result': "<a id=\"hoge\" class=\"foo\" href=\"http://www.google.com/\"></a>\n",
         },
         {
           'query': "a[href=http://www.google.com/]{Google}",
           'result': "<a href=\"http://www.google.com/\">Google</a>\n",
         },
         {
-          'query': "{ZenCoding}",
-          'result': "ZenCoding",
+          'query': "{Emmet}",
+          'result': "Emmet",
         },
         {
           'query': "a+b",
@@ -288,15 +305,15 @@ finish
         },
         {
           'query': "a[href=foo][class=bar]",
-          'result': "<a href=\"foo\" class=\"bar\"></a>\n",
+          'result': "<a class=\"bar\" href=\"foo\"></a>\n",
         },
         {
           'query': "a[a=b][b=c=d][e]{foo}*2",
-          'result': "<a a=\"b\" b=\"c=d\" e=\"\" href=\"\">foo</a>\n<a a=\"b\" b=\"c=d\" e=\"\" href=\"\">foo</a>\n",
+          'result': "<a href=\"e\" a=\"b\" b=\"c=d\">foo</a>\n<a href=\"e\" a=\"b\" b=\"c=d\">foo</a>\n",
         },
         {
           'query': "a[a=b][b=c=d][e]*2{foo}",
-          'result': "<a a=\"b\" b=\"c=d\" e=\"\" href=\"\"></a>\n<a a=\"b\" b=\"c=d\" e=\"\" href=\"\"></a>\nfoo",
+          'result': "<a href=\"e\" a=\"b\" b=\"c=d\"></a>\n<a href=\"e\" a=\"b\" b=\"c=d\"></a>\nfoo",
         },
         {
           'query': "a*2{foo}a",
@@ -403,12 +420,16 @@ finish
           'result': "<div>\n\t<!-- #page -->\n\t<div id=\"page\">\n\t\t<!-- .title -->\n\t\t<p class=\"title\"></p>\n\t\t<!-- /.title -->\n\t\t<p></p>\n\t</div>\n\t<!-- /#page -->\n</div>\n",
         },
         {
+          'query': "kbd*2|s",
+          'result': "<kbd></kbd><kbd></kbd>",
+        },
+        {
           'query': "link:css",
-          'result': "<link media=\"all\" rel=\"stylesheet\" href=\"style.css\" type=\"text/css\" />\n",
+          'result': "<link rel=\"stylesheet\" href=\"style.css\" media=\"all\">\n",
         },
         {
           'query': "a[title=\"Hello', world\" rel]",
-          'result': "<a rel=\"\" href=\"\" title=\"Hello', world\"></a>\n",
+          'result': "<a href=\"\" title=\"Hello', world\" rel=\"\"></a>\n",
         },
         {
           'query': "div>a#foo{bar}",
@@ -460,7 +481,7 @@ finish
         },
         {
           'query': "(div>(label+input))+div",
-          'result': "<div>\n\t<label for=\"\"></label>\n\t<input type=\"\" />\n</div>\n<div></div>\n",
+          'result': "<div>\n\t<label for=\"\"></label>\n\t<input type=\"\">\n</div>\n<div></div>\n",
         },
         {
           'query': "test1\ntest2\ntest3$$$$\\<esc>ggVG\\<c-y>,ul>li>span*>a\\<cr>$$$$",
@@ -468,11 +489,15 @@ finish
         },
         {
           'query': "test1\ntest2\ntest3$$$$\\<esc>ggVG\\<c-y>,input[type=input value=$#]*\\<cr>$$$$",
-          'result': "<input type=\"input\" value=\"test1\" />\n<input type=\"input\" value=\"test2\" />\n<input type=\"input\" value=\"test3\" />",
+          'result': "<input type=\"input\" value=\"test1\">\n<input type=\"input\" value=\"test2\">\n<input type=\"input\" value=\"test3\">",
         },
         {
           'query': "div#id-$*5>div#id2-$",
           'result': "<div id=\"id-1\">\n\t<div id=\"id2-1\"></div>\n</div>\n<div id=\"id-2\">\n\t<div id=\"id2-2\"></div>\n</div>\n<div id=\"id-3\">\n\t<div id=\"id2-3\"></div>\n</div>\n<div id=\"id-4\">\n\t<div id=\"id2-4\"></div>\n</div>\n<div id=\"id-5\">\n\t<div id=\"id2-5\"></div>\n</div>\n",
+        },
+        {
+          'query': ".foo>[bar=2]>.baz",
+          'result': "<div class=\"foo\">\n\t<div bar=\"2\">\n\t\t<div class=\"baz\"></div>\n\t</div>\n</div>\n",
         },
         {
           'query': "{test case $ }*3",
@@ -489,6 +514,22 @@ finish
         {
           'query': "{test case $$$ }*3",
           'result': "test case 001 test case 002 test case 003 ",
+        },
+        {
+          'query': "a[title=$#]{foo}",
+          'result': "<a href=\"\" title=\"foo\">foo</a>\n",
+        },
+        {
+          'query': "span.item$*2>{item $}",
+          'result': "<span class=\"item1\">item 1</span>\n<span class=\"item2\">item 2</span>\n",
+        },
+        {
+          'query': "\t<div class=\"footer_nav\">\n\t\t<a href=\"#\">nav link</a>\n\t</div>$$$$\\<esc>ggVG\\<c-y>,div\\<cr>$$$$",
+          'result': "\t<div>\n\t\t<div class=\"footer_nav\">\n\t\t\t<a href=\"#\">nav link</a>\n\t\t</div>\n\t</div>",
+        },
+        {
+          'query': "<small>a$$$$</small>",
+          'result': "<small><a href=\"\"></a></small>",
         },
       ],
     },
@@ -523,11 +564,15 @@ finish
       'tests': [
         {
           'query': "img[src=http://mattn.kaoriya.net/images/logo.png]$$$$\\<c-y>,\\<c-y>i$$$$",
-          'result': "<img src=\"http://mattn.kaoriya.net/images/logo.png\" alt=\"\" width=\"96\" height=\"96\" />",
+          'result': "<img src=\"http://mattn.kaoriya.net/images/logo.png\" alt=\"\" width=\"113\" height=\"113\">",
         },
         {
           'query': "img[src=/logo.png]$$$$\\<c-y>,\\<c-y>i$$$$",
-          'result': "<img src=\"/logo.png\" alt=\"\" />",
+          'result': "<img src=\"/logo.png\" alt=\"\">",
+        },
+        {
+          'query': "img[src=http://mattn.kaoriya.net/images/logo.png width=foo height=bar]$$$$\\<c-y>,\\<c-y>i$$$$",
+          'result': "<img src=\"http://mattn.kaoriya.net/images/logo.png\" alt=\"\" width=\"113\" height=\"113\">",
         },
       ],
     },
@@ -540,91 +585,160 @@ finish
         },
       ],
     },
+    {
+      'name': 'contains dash in attributes',
+      'tests': [
+        {
+          'query': "div[foo-bar=\"baz\"]",
+          'result': "<div foo-bar=\"baz\"></div>\n",
+        },
+      ],
+    },
+    {
+      'name': 'default attributes',
+      'tests': [
+        {
+          'query': "p.title>a[/hoge/]",
+          'result': "<p class=\"title\"><a href=\"/hoge/\"></a></p>\n",
+        },
+        {
+          'query': "script[jquery.js]",
+          'result': "<script src=\"jquery.js\"></script>\n",
+        },
+      ],
+    },
+    {
+      'name': 'multiple group',
+      'tests': [
+        {
+          'query': ".outer$*3>.inner$*2",
+          'result': "<div class=\"outer1\">\n\t<div class=\"inner1\"></div>\n\t<div class=\"inner2\"></div>\n</div>\n<div class=\"outer2\">\n\t<div class=\"inner1\"></div>\n\t<div class=\"inner2\"></div>\n</div>\n<div class=\"outer3\">\n\t<div class=\"inner1\"></div>\n\t<div class=\"inner2\"></div>\n</div>\n",
+        },
+      ],
+    },
+    {
+      'name': 'group itemno',
+      'tests': [
+        {
+          'query': "dl>(dt{$}+dd)*3",
+          'result': "<dl>\n\t<dt>1</dt>\n\t<dd></dd>\n\t<dt>2</dt>\n\t<dd></dd>\n\t<dt>3</dt>\n\t<dd></dd>\n</dl>\n",
+        },
+        {
+          'query': "(div[attr=$]*3)*3",
+          'result': "<div attr=\"1\"></div>\n<div attr=\"2\"></div>\n<div attr=\"3\"></div>\n<div attr=\"1\"></div>\n<div attr=\"2\"></div>\n<div attr=\"3\"></div>\n<div attr=\"1\"></div>\n<div attr=\"2\"></div>\n<div attr=\"3\"></div>\n",
+        },
+      ],
+    },
+    {
+      'name': 'update tag',
+      'tests': [
+        {
+          'query': "<h$$$$\\<c-y>u.global\\<cr>$$$$3></h3>",
+          'result': "<h3 class=\"global\"></h3>",
+        },
+      ],
+    },
   ],
-},
-{
+  'dummy': "}}}"},
+{ 'test-css': '{{{',
   'type': 'css',
   'categories': [
     {
       'name': 'expand abbreviation',
       'tests': [
         {
-          'query': "@i",
-          'result': "@import url();",
+          'query': "{fs:n$$$$}",
+          'result': "{font-style: normal;}",
         },
         {
-          'query': "fs:n",
-          'result': "font-style: normal;",
+          'query': "{fl:l|fc$$$$}",
+          'result': "{float: left;}",
         },
         {
-          'query': "fl:l|fc",
-          'result': "float: left;",
+          'query': "{bg+$$$$}",
+          'result': "{background: $$$$#fff url() 0 0 no-repeat;}",
         },
         {
-          'query': "bg+$$$$",
-          'result': "background: #FFF url($$$$) 0 0 no-repeat;",
+          'query': "{bg+!$$$$}",
+          'result': "{background: $$$$#fff url() 0 0 no-repeat !important;}",
         },
         {
-          'query': "bg+!$$$$",
-          'result': "background: #FFF url($$$$) 0 0 no-repeat !important;",
+          'query': "{m$$$$}",
+          'result': "{margin: $$$$;}",
         },
         {
-          'query': "m$$$$",
-          'result': "margin: $$$$;",
+          'query': "{m0.1p$$$$}",
+          'result': "{margin: 0.1%;}",
         },
         {
-          'query': "m0.1p$$$$",
-          'result': "margin: 0.1%;",
+          'query': "{m1.0$$$$}",
+          'result': "{margin: 1.0em;}",
         },
         {
-          'query': "m1.0$$$$",
-          'result': "margin: 1.0em;",
+          'query': "{m2$$$$}",
+          'result': "{margin: 2px;}",
         },
         {
-          'query': "m2$$$$",
-          'result': "margin: 2px;",
+          'query': "{bdrs10$$$$}",
+          'result': "{border-radius: 10px;}",
         },
         {
-          'query': "bdrs10$$$$",
-          'result': "border-radius: 10px;",
+          'query': "{-bdrs20$$$$}",
+          'result': "{-webkit-border-radius: 20px;\n-moz-border-radius: 20px;\nborder-radius: 20px;}",
         },
         {
-          'query': "-bdrs20$$$$",
-          'result': "-webkit-border-radius: 20px;\n-moz-border-radius: 20px;\nborder-radius: 20px;",
+          'query': "{lg(top,#fff,#000)$$$$}",
+          'result': "{background-image: -webkit-gradient(top, 0 0, 0 100, from(#fff), to(#000));\nbackground-image: -webkit-linear-gradient(#fff, #000);\nbackground-image: -moz-linear-gradient(#fff, #000);\nbackground-image: -o-linear-gradient(#fff, #000);\nbackground-image: linear-gradient(#fff, #000);\n}",
         },
         {
-          'query': "lg(top,#fff,#000)$$$$",
-          'result': "background-image:  -webkit-gradient(top, 0 0, 0 100, from(#fff), to(#000));\nbackground-image:  -webkit-linear-gradient(#fff, #000);\nbackground-image:  -moz-linear-gradient(#fff, #000);\nbackground-image:  -o-linear-gradient(#fff, #000);\nbackground-image:  linear-gradient(#fff, #000);\n",
+          'query': "{m10-5-0$$$$}",
+          'result': "{margin: 10px 5px 0;}",
         },
         {
-          'query': "m10-5-0$$$$",
-          'result': "margin: 10px 5px 0px;",
+          'query': "{m-10--5$$$$}",
+          'result': "{margin: -10px -5px;}",
         },
         {
-          'query': "m-10--5$$$$",
-          'result': "margin: -10px -5px;",
+          'query': "{m10-auto$$$$}",
+          'result': "{margin: 10px auto;}",
         },
         {
-          'query': "m10-auto$$$$",
-          'result': "margin: 10px auto;",
+          'query': "{w100p$$$$}",
+          'result': "{width: 100%;}",
         },
         {
-          'query': "w100p$$$$",
-          'result': "width: 100%;",
+          'query': "{h50e$$$$}",
+          'result': "{height: 50em;}",
         },
         {
-          'query': "h50e$$$$",
-          'result': "height: 50em;",
+          'query': "{(bg+)+c$$$$}",
+          'result': "{background: $$$$#fff url() 0 0 no-repeat;\ncolor: #000;}",
         },
         {
-          'query': "(bg+)+c$$$$",
-          'result': "background: #FFF url($$$$) 0 0 no-repeat;\ncolor: #000;",
+          'query': "{m0+bgi+bg++p0$$$$}",
+          'result': "{margin: 0;\nbackground-image: url($$$$);\nbackground: #fff url() 0 0 no-repeat;\npadding: 0;}",
+        },
+        {
+          'query': "{borle$$$$}",
+          'result': "{border-left: $$$$;}",
+        },
+        {
+          'query': "{c#dba$$$$}",
+          'result': "{color: rgb(221, 187, 170);}",
+        },
+        {
+          'query': "{c#dba.7$$$$}",
+          'result': "{color: rgb(221, 187, 170, 0.7);}",
+        },
+        {
+          'query': "{dn$$$$}",
+          'result': "{display: none;}",
         },
       ],
     },
   ],
-},
-{
+  'dummy': "}}}"},
+{ 'test-haml': '{{{',
   'type': 'haml',
   'categories': [
     {
@@ -645,6 +759,10 @@ finish
         {
           'query': ".content{Hello!}|haml",
           'result': "%div.content Hello!\n",
+        },
+        {
+          'query': "a[title=$#]{foo}",
+          'result': "%a{ :href => \"\", :title => \"foo\" } foo\n",
         },
       ],
     },
@@ -675,8 +793,8 @@ finish
       ],
     },
   ],
-},
-{
+  'dummy': "}}}"},
+{ 'test-slim': "{{{",
   'type': 'slim',
   'categories': [
     {
@@ -684,11 +802,11 @@ finish
       'tests': [
         {
           'query': "div>p+ul#foo>li.bar$[foo=bar][bar=baz]*3>{baz}",
-          'result': "div\n  p\n  ul id=\"foo\"\n    li foo=\"bar\" bar=\"baz\" class=\"bar1\"\n      | baz\n    li foo=\"bar\" bar=\"baz\" class=\"bar2\"\n      | baz\n    li foo=\"bar\" bar=\"baz\" class=\"bar3\"\n      | baz\n",
+          'result': "div\n  p\n  ul id=\"foo\"\n    li class=\"bar1\" foo=\"bar\" bar=\"baz\"\n      | baz\n    li class=\"bar2\" foo=\"bar\" bar=\"baz\"\n      | baz\n    li class=\"bar3\" foo=\"bar\" bar=\"baz\"\n      | baz\n",
         },
         {
           'query': "div>p+ul#foo>li.bar$[foo=bar][bar=baz]*3>{baz}|slim",
-          'result': "div\n  p\n  ul id=\"foo\"\n    li foo=\"bar\" bar=\"baz\" class=\"bar1\"\n      | baz\n    li foo=\"bar\" bar=\"baz\" class=\"bar2\"\n      | baz\n    li foo=\"bar\" bar=\"baz\" class=\"bar3\"\n      | baz\n",
+          'result': "div\n  p\n  ul id=\"foo\"\n    li class=\"bar1\" foo=\"bar\" bar=\"baz\"\n      | baz\n    li class=\"bar2\" foo=\"bar\" bar=\"baz\"\n      | baz\n    li class=\"bar3\" foo=\"bar\" bar=\"baz\"\n      | baz\n",
         },
         {
           'query': "a*3|slim",
@@ -697,6 +815,10 @@ finish
         {
           'query': ".content{Hello!}|slim",
           'result': "div class=\"content\"\n  | Hello!\n",
+        },
+        {
+          'query': "a[title=$#]{foo}",
+          'result': "a href=\"\" title=\"foo\"\n  | foo\n",
         },
       ],
     },
@@ -727,8 +849,8 @@ finish
       ],
     },
   ],
-},
-{
+  'dummy': "}}}"},
+{ 'test-xsl': "{{{",
   'type': 'xsl',
   'categories': [
     {
@@ -740,13 +862,13 @@ finish
         },
         {
           'query': "ap>wp",
-          'result': "<xsl:apply-templates select=\"\" mode=\"\">\n\t<xsl:with-param select=\"\" name=\"\"></xsl:with-param>\n</xsl:apply-templates>\n",
+          'result': "<xsl:apply-templates select=\"\" mode=\"\">\n\t<xsl:with-param name=\"\" select=\"\"></xsl:with-param>\n</xsl:apply-templates>\n",
         },
       ],
     },
   ],
-},
-{
+  'dummy': "}}}"},
+{ 'test-xsd': "{{{",
   'type': 'xsd',
   'categories': [
     {
@@ -754,13 +876,13 @@ finish
       'tests': [
         {
           'query': "xsd:w3c",
-          'result': "<?xml version=\"1.0\"?>\n<xsd:schema xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n\t<xsd:element name=\"\" type=\"\"/>\n</xsd:schema>",
+          'result': "<?xml version=\"1.0\"?>\n<xsd:schema xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n\t<xsd:element name=\"\" type=\"\"/>\n</xsd:schema>\n",
         },
       ],
     },
   ],
-},
-{
+  'dummy': "}}}"},
+{ 'test-mustache': "{{{",
   'type': 'mustache',
   'categories': [
     {
@@ -777,6 +899,88 @@ finish
       ],
     },
   ],
-},
+  'dummy': "}}}"},
+{ 'test-sass': "{{{",
+  'type': 'scss',
+  'categories': [
+    {
+      'name': 'expand abbreviation',
+      'tests': [
+        {
+          'query': "@i$$$$",
+          'result': "@import url();",
+        },
+        {
+          'query': "{fs:n$$$$}",
+          'result': "{font-style: normal;}",
+        },
+        {
+          'query': "{fl:l|fc$$$$}",
+          'result': "{float: left;}",
+        },
+        {
+          'query': "{bg+$$$$}",
+          'result': "{background: $$$$#fff url() 0 0 no-repeat;}",
+        },
+        {
+          'query': "{bg+!$$$$}",
+          'result': "{background: $$$$#fff url() 0 0 no-repeat !important;}",
+        },
+        {
+          'query': "{m$$$$}",
+          'result': "{margin: $$$$;}",
+        },
+        {
+          'query': "{m0.1p$$$$}",
+          'result': "{margin: 0.1%;}",
+        },
+        {
+          'query': "{m1.0$$$$}",
+          'result': "{margin: 1.0em;}",
+        },
+        {
+          'query': "{m2$$$$}",
+          'result': "{margin: 2px;}",
+        },
+        {
+          'query': "{bdrs10$$$$}",
+          'result': "{border-radius: 10px;}",
+        },
+        {
+          'query': "{-bdrs20$$$$}",
+          'result': "{-webkit-border-radius: 20px;\n-moz-border-radius: 20px;\nborder-radius: 20px;}",
+        },
+        {
+          'query': "{lg(top,#fff,#000)$$$$}",
+          'result': "{background-image: -webkit-gradient(top, 0 0, 0 100, from(#fff), to(#000));\nbackground-image: -webkit-linear-gradient(#fff, #000);\nbackground-image: -moz-linear-gradient(#fff, #000);\nbackground-image: -o-linear-gradient(#fff, #000);\nbackground-image: linear-gradient(#fff, #000);\n}",
+        },
+        {
+          'query': "{m10-5-0$$$$}",
+          'result': "{margin: 10px 5px 0;}",
+        },
+        {
+          'query': "{m-10--5$$$$}",
+          'result': "{margin: -10px -5px;}",
+        },
+        {
+          'query': "{m10-auto$$$$}",
+          'result': "{margin: 10px auto;}",
+        },
+        {
+          'query': "{w100p$$$$}",
+          'result': "{width: 100%;}",
+        },
+        {
+          'query': "{h50e$$$$}",
+          'result': "{height: 50em;}",
+        },
+        {
+          'query': "{(bg+)+c$$$$}",
+          'result': "{background: $$$$#fff url() 0 0 no-repeat;\ncolor: #000;}",
+        },
+      ],
+    },
+  ],
+  'dummy': "}}}"},
 ]
-" vim:set et:
+" vim:set et fdm=marker:
