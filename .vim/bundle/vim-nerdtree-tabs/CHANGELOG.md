@@ -1,5 +1,24 @@
 # vim-nerdtree-tabs changelog
 
+## v1.4.6
+
+* Add NERDTreeTabsFind function.
+
+## v1.4.5
+
+* Add NERDTreeFocusToggle function. (Thanks orthez.)
+
+* More general refactoring and cleanup. (Thanks techlivezheng.)
+
+## v1.4.4
+
+* Option to always focus file window after startup. (Thanks rr-.)
+
+## v1.4.3
+
+* Partial fix for #32. When directory is given as an argument, two nerdtrees
+  are open, but both now point into the correct directory. (Thanks szajbus.)
+
 ## v1.4.2
 
 * Friendlier when using together with MiniBufExplorer. (Thanks techlivezheng.)

@@ -25,11 +25,11 @@ Many of these features can be switched off. See section Configuration.
 
         cd ~/.vim/bundle
         git clone https://github.com/jistr/vim-nerdtree-tabs.git
-        
+
     Or **through Vundle**:
 
         Bundle 'jistr/vim-nerdtree-tabs'
-        
+
     Or **through Janus**:
 
         cd ~/.janus
@@ -52,6 +52,8 @@ Vim-nerdtree-tabs provides these commands:
 
 * `:NERDTreeTabsToggle` toggles NERDTree on/off for all tabs.
 
+* `:NERDTreeTabsFind` find currently opened file and select it
+
 * `:NERDTreeMirrorOpen` acts as `:NERDTreeMirror`, but smarter: When opening,
   it first tries to use an existing tree (i.e. previously closed in this tab or
   perform a mirror of another tab's tree). If all this fails, a new tree is
@@ -66,11 +68,15 @@ Vim-nerdtree-tabs provides these commands:
 * `:NERDTreeSteppedClose` unfocuses the NERDTree, or closes/hides it if it was
   not focused.
 
+* `:NERDTreeFocusToggle` focus the NERDTree or create it if focus is
+  on a file, unfocus NERDTree if focus is on NERDTree
+
 There are also plug-mappings available with the same functionality:
 
 * `<plug>NERDTreeTabsOpen`
 * `<plug>NERDTreeTabsClose`
 * `<plug>NERDTreeTabsToggle`
+* `<plug>NERDTreeTabsFind`
 * `<plug>NERDTreeMirrorOpen`
 * `<plug>NERDTreeMirrorToggle`
 * `<plug>NERDTreeSteppedOpen`
@@ -88,12 +94,12 @@ values:
 * `g:nerdtree_tabs_open_on_console_startup` (default: `0`)  
   Open NERDTree on console vim startup
 
-* `let g:nerdtree_tabs_no_startup_for_diff` (default: `1`)  
+* `g:nerdtree_tabs_no_startup_for_diff` (default: `1`)  
   Do not open NERDTree if vim starts in diff mode
 
 * `g:nerdtree_tabs_smart_startup_focus` (default: `1`)  
   On startup, focus NERDTree if opening a directory, focus file if opening
-  a file.
+  a file. (When set to `2`, always focus file window after startup).
 
 * `g:nerdtree_tabs_open_on_new_tab` (default: `1`)  
   Open NERDTree on new tab creation (if NERDTree was globally opened by
@@ -121,6 +127,9 @@ values:
 * `g:nerdtree_tabs_startup_cd` (default: `1`)  
   When given a directory name as a command line parameter when launching Vim,
   `:cd` into it.
+
+* `g:nerdtree_tabs_autofind` (default: `0`)  
+  Automatically find and select currently opened file in NERDTree.
 
 ### Example
 
