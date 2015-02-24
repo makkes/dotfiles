@@ -51,6 +51,8 @@ au BufRead,BufNewFile *.jsm setfiletype javascript
 
 " Command-T stuff
 let g:CommandTWildIgnore=&wildignore . ",**/node_modules/*"
+let g:CommandTMaxDepth=3
+let g:CommandTMaxFiles=10000
 
 " latex-suite stuff
 let g:Tex_DefaultTargetFormat='pdf'
