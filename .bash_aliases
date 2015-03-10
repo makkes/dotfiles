@@ -1,0 +1,5 @@
+alias dim='identify -format "%wx%h %f\n"'
+alias ls='ls --color=auto'
+alias ll='ls -lA'
+alias llh='ls -lhA'
+alias gitfind='git ls-files | grep '
