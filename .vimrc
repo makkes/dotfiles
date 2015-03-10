@@ -51,8 +51,9 @@ au BufRead,BufNewFile *.jsm setfiletype javascript
 
 " Command-T stuff
 let g:CommandTWildIgnore=&wildignore . ",**/node_modules/*"
-let g:CommandTMaxDepth=3
-let g:CommandTMaxFiles=10000
+let g:CommandTMaxDepth=15
+let g:CommandTMaxFiles=100000
+let g:CommandTFilescanner="git"
 
 " latex-suite stuff
 let g:Tex_DefaultTargetFormat='pdf'
@@ -75,3 +76,5 @@ set laststatus=2
 " Show full file path in status line
 set statusline=%<\ %n:%F\ %m%r%y\ %=line\ %l/%L,\ col\ %c%V
 set modeline
+" always vertically center the cursor
+set scrolloff=999
