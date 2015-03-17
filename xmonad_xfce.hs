@@ -24,6 +24,7 @@ myManageHook = composeAll
     , resource  =? "synapse"          --> doIgnore
     , className =? "Xfrun4"           --> doCenterFloat
     , className =? "Kruler"      --> doFloat
+    , className =? "Wrapper"      --> doFloat
     , className =? "Firefox"          --> doF (W.shift "web")
     , (className =? "Firefox" <&&> resource =? "Browser") --> doFloat
     , (className =? "Firefox" <&&> title =? "Inspect Network Request") --> (ask >>= doF . W.sink)
