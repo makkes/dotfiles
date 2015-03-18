@@ -29,8 +29,8 @@ inoremap <Down> <C-o>g<Down>
 inoremap <Up> <C-o>g<Up>
 nnoremap <Down> g<Down>
 nnoremap <Up> g<Up>
-nnoremap <C-l> :tabnext<CR>
-nnoremap <C-k> :tabprev<CR>
+nnoremap <C-j> :tabprev<CR>
+nnoremap <C-k> :tabnext<CR>
 nnoremap <F3> :NERDTreeTabsToggle<CR>
 nnoremap <F4> :bd<CR>
 "inoremap <F4> <c-o>:w<cr>
