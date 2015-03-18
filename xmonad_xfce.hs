@@ -44,14 +44,16 @@ flexibleLayout = smartBorders $ desktopLayoutModifiers(Grid)
 
 myLayouts = minimize $ defaultLayouts
 
-main = xmonad $ xfceConfig { 
+main = do
+    spawn "/usr/bin/xcompmgr -n"
+
+    xmonad $ xfceConfig {
     focusFollowsMouse = True,
     manageHook = myManageHook <+> fullscreenManageHook,
     layoutHook = onWorkspace "offshore" flexibleLayout $ myLayouts,
     handleEventHook = handleEventHook xfceConfig <+> fullscreenEventHook <+> minimizeEventHook,
     workspaces = ["web", "chat", "mail", "dev", "offshore", "media"]
-    } 
-    `additionalKeys`
+    } `additionalKeys`
         [ ((myModMask, xK_m), withFocused minimizeWindow)
         , ((myModMask, xK_p), spawn "synapse") 
         , ((myModMask .|. shiftMask, xK_m), sendMessage RestoreNextMinimizedWin) 
