@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/vim-jsbeautify"]
 	path = .vim/bundle/vim-jsbeautify
 	url = git@github.com:maksimr/vim-jsbeautify.git
+[submodule ".vim/bundle/vim-less"]
+	path = .vim/bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git
