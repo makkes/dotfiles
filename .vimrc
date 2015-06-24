@@ -63,7 +63,7 @@ let g:Tex_FoldedCommands=''
 let g:Tex_FoldedMisc=''
 set grepprg=grep\ -nH\ $*
 
-let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_auto_jump=0
 let g:syntastic_check_on_open=0
 let g:syntastic_auto_loc_list=1
