@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/tern_for_vim"]
 	path = .vim/bundle/tern_for_vim
 	url = https://github.com/marijnh/tern_for_vim.git
+[submodule ".vim/bundle/vim-late_evening"]
+	path = .vim/bundle/vim-late_evening
+	url = https://github.com/h3xx/vim-late_evening.git
