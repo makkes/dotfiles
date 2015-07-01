@@ -63,6 +63,7 @@ let g:Tex_FoldedCommands=''
 let g:Tex_FoldedMisc=''
 set grepprg=grep\ -nH\ $*
 
+" Syntastic stuff
 let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_auto_jump=0
 let g:syntastic_check_on_open=0
@@ -70,6 +71,10 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['javascript'],
                            \ 'passive_filetypes': ['c'] }
+
+" Tern stuff
+let g:tern_map_keys=1
+let g:tern_show_argument_hints='on_hold'
 
 " Always display the status line, even if only one window is displayed
 set laststatus=2
