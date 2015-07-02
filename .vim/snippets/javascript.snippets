@@ -75,12 +75,12 @@ snippet gett
 	getElementBy${1:Id}('${2}')${3}
 # Query Element
 snippet query
-	querySelector('${1:#}')
+	querySelector("${1:#}")
 # Add event listener
 snippet addel
-	addEventListener('${1:}', ${2:function (ev) {}});
+	addEventListener("${1:}", ${2:function (ev) {}});
 snippet boot
-	/*global window, document, console */
+	/*eslint-env browser */
 	
 	var App = (function () {
 	    "use strict";
