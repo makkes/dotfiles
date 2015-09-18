@@ -1,0 +1,12 @@
+{
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "camelcase": 0,
+        "quotes": [2, "double"]
+    }
+}
