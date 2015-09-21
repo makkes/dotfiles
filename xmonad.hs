@@ -49,6 +49,7 @@ main = xmonad $ gnomeConfig {
     } 
     `additionalKeys`
         [ ((myModMask, xK_m), withFocused minimizeWindow)
+        , ((myModMask, xK_p), spawn "synapse") 
         , ((myModMask .|. shiftMask, xK_m), sendMessage RestoreNextMinimizedWin) 
         , ((myModMask, xK_semicolon), prevWS)
         , ((myModMask, xK_apostrophe), nextWS)
