@@ -1,12 +1,26 @@
 {
-    "ecmaFeatures": {
-        "jsx": true
-    },
-    "plugins": [
-        "react"
-    ],
     "rules": {
-        "camelcase": 0,
-        "quotes": [2, "double"]
-    }
+        "indent": [
+            2,
+            4
+        ],
+        "strict": 1,
+        "quotes": [
+            2,
+            "double"
+        ],
+        "linebreak-style": [
+            2,
+            "unix"
+        ],
+        "semi": [
+            2,
+            "always"
+        ]
+    },
+    "env": {
+        "node": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended"
 }
