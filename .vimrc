@@ -27,17 +27,16 @@ inoremap <C-c> <CR><Esc>O
 inoremap <silent> <C-s> <C-o>:w<CR>
 inoremap <Down> <C-o>g<Down>
 inoremap <Up> <C-o>g<Up>
+inoremap jk <ESC>
 nnoremap <Down> g<Down>
 nnoremap <Up> g<Up>
 nnoremap <C-j> :tabprev<CR>
 nnoremap <C-k> :tabnext<CR>
-nnoremap <F3> :NERDTreeTabsToggle<CR>
 nnoremap <F4> :bd<CR>
 "inoremap <F4> <c-o>:w<cr>
 "nnoremap <F5> :only<CR>
 nnoremap <silent> <F9> :TagbarToggle<CR>
 auto Filetype html,htmldjango,xml,xsl source ~/.vim/scripts/closetag.vim
-:let NERDTreeQuitOnOpen=0
 
 " Highlighting
 hi clear SpellBad
@@ -49,8 +48,12 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 au BufRead,BufNewFile *.jsm setfiletype javascript
 
+" NERDTree stuff
+:let NERDTreeQuitOnOpen=0
+nnoremap <F3> :NERDTreeFind<CR>
+
 " Command-T stuff
-let g:CommandTWildIgnore=&wildignore . ",**/node_modules/*"
+let g:CommandTWildIgnore=&wildignore . ",**/node_modules/*,**/bin/*,,**/bower_components/*,**/build/*"
 let g:CommandTMaxDepth=15
 let g:CommandTMaxFiles=100000
 let g:CommandTFilescanner="git"
