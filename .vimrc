@@ -18,6 +18,7 @@ set number
 set hidden
 set dict+=/usr/share/dict/british-english,/usr/share/dict/ngerman
 set complete+=k
+set cursorline "highlight current line for better visibility
 command! RemoveDuplicateWhitespaces 1,$s/\([^ ]\)   */\1 /ge
 autocmd FileType javascript,css nmap <silent> ,; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css inoremap <silent> ,; <ESC>:call cosco#commaOrSemiColon()<CR>a
@@ -32,7 +33,7 @@ nnoremap <Down> g<Down>
 nnoremap <Up> g<Up>
 nnoremap <C-j> :tabprev<CR>
 nnoremap <C-k> :tabnext<CR>
-nnoremap <F4> :bd<CR>
+"nnoremap <F4> :bd<CR>
 "inoremap <F4> <c-o>:w<cr>
 "nnoremap <F5> :only<CR>
 nnoremap <silent> <F9> :TagbarToggle<CR>
@@ -51,6 +52,7 @@ au BufRead,BufNewFile *.jsm setfiletype javascript
 " NERDTree stuff
 :let NERDTreeQuitOnOpen=0
 nnoremap <F3> :NERDTreeFind<CR>
+nnoremap <F4> :NERDTreeClose<CR>
 
 " Command-T stuff
 let g:CommandTWildIgnore=&wildignore . ",**/node_modules/*,**/bin/*,,**/bower_components/*,**/build/*"
