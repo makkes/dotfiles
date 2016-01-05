@@ -7,7 +7,7 @@
         "strict": 1,
         "quotes": [
             2,
-            "double"
+            "single"
         ],
         "linebreak-style": [
             2,
