@@ -7,6 +7,7 @@ set t_Co=256
 colorscheme late_evening
 set background=dark
 set expandtab
+set hlsearch "highlight matches of current search
 set shiftwidth=4
 set softtabstop=4
 set smarttab
