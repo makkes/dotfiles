@@ -55,6 +55,9 @@ au BufRead,BufNewFile *.jsm setfiletype javascript
 nnoremap <F3> :NERDTreeFind<CR>
 nnoremap <F4> :NERDTreeClose<CR>
 
+" neocomplete stuff
+let g:neocomplete#enable_at_startup = 1
+
 " Command-T stuff
 let g:CommandTWildIgnore=&wildignore . ",**/node_modules/*,**/bin/*,,**/bower_components/*,**/build/*"
 let g:CommandTMaxDepth=15
