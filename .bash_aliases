@@ -4,3 +4,5 @@ alias ll="ls -lhA --group-directories-first"
 alias bc="bc -l"
 alias gitfind='git ls-files | grep '
 alias psgrep='ps -ef|grep'
+alias grep='grep --color=auto'
+alias less='less -F'
