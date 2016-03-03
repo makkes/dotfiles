@@ -28,13 +28,8 @@ myManageHook = composeAll
     , className =? "Firefox"          --> doF (W.shift "web")
     , (className =? "Firefox" <&&> resource =? "Browser") --> doFloat
     , (className =? "Firefox" <&&> title =? "Inspect Network Request") --> (ask >>= doF . W.sink)
-    , className =? "Chromium-browser" --> doF (W.shift "web")
-    , className =? "Pidgin"           --> doF (W.shift "chat")
-    , className =? "Skype"            --> doF (W.shift "chat")
-    , className =? "Thunderbird"      --> doF (W.shift "mail")
-    , className =? "Rhythmbox"        --> doF (W.shift "media")
-    , className =? "Spotify"          --> doF (W.shift "media")
-    , className =? "Eclipse"          --> doF (W.shift "dev")
+    , className =? "Chromium-browser" --> doF (W.shift "work")
+    , className =? "Eclipse"          --> doF (W.shift "eclipse")
     ]
     <+>
     composeOne [ isFullscreen -?> doFullFloat ]
@@ -50,9 +45,9 @@ main = do
     xmonad $ xfceConfig {
     focusFollowsMouse = True,
     manageHook = myManageHook <+> fullscreenManageHook,
-    layoutHook = onWorkspace "offshore" flexibleLayout $ myLayouts,
+    layoutHook = onWorkspace "terminals1" flexibleLayout $ myLayouts,
     handleEventHook = handleEventHook xfceConfig <+> fullscreenEventHook <+> minimizeEventHook,
-    workspaces = ["web", "chat", "mail", "dev", "offshore", "media"]
+    workspaces = ["work", "personal", "virtualbox", "eclipse", "terminals1", "terminals2", "terminals3"]
     } `additionalKeys`
         [ ((myModMask, xK_m), withFocused minimizeWindow)
         , ((myModMask, xK_p), spawn "synapse") 
