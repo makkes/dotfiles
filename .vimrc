@@ -21,8 +21,11 @@ set dict+=/usr/share/dict/british-english,/usr/share/dict/ngerman
 set complete+=k
 set cursorline "highlight current line for better visibility
 command! RemoveDuplicateWhitespaces 1,$s/\([^ ]\)   */\1 /ge
+
+"keyboard mappings for different file types
 autocmd FileType javascript,css nmap <silent> ,; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css inoremap <silent> ,; <ESC>:call cosco#commaOrSemiColon()<CR>a
+autocmd Filetype html,htmldjango,xml,xsl source ~/.vim/scripts/closetag.vim
 inoremap <C-r><C-d> <C-o>:RemoveDuplicateWhitespaces<CR>
 nnoremap <C-r><C-d> :RemoveDuplicateWhitespaces<CR>
 inoremap <C-c> <CR><Esc>O
@@ -38,7 +41,6 @@ nnoremap <C-k> :tabnext<CR>
 "inoremap <F4> <c-o>:w<cr>
 "nnoremap <F5> :only<CR>
 nnoremap <silent> <F9> :TagbarToggle<CR>
-auto Filetype html,htmldjango,xml,xsl source ~/.vim/scripts/closetag.vim
 
 " Highlighting
 hi clear SpellBad
