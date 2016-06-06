@@ -45,7 +45,8 @@ main = xmonad $ gnomeConfig {
     manageHook = myManageHook <+> fullscreenManageHook,
     layoutHook = myLayouts,
     handleEventHook = handleEventHook gnomeConfig <+> fullscreenEventHook <+> minimizeEventHook,
-    workspaces = ["web", "chat", "mail", "offshore", "media"]
+    workspaces = ["web", "chat", "mail", "offshore", "media"],
+    startupHook = startupHook gnomeConfig >> setWMName "LG3D"
     } 
     `additionalKeys`
         [ ((myModMask, xK_m), withFocused minimizeWindow)
