@@ -83,6 +83,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['javascript'],
                            \ 'passive_filetypes': ['c'] }
 
+" vim-go stuff
+let g:go_auto_type_info = 1
+
 " Tern stuff
 let g:tern_map_keys=1
 let g:tern_show_argument_hints='on_hold'
