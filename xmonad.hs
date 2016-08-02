@@ -46,11 +46,11 @@ main = xmonad $ gnomeConfig {
     layoutHook = myLayouts,
     handleEventHook = handleEventHook gnomeConfig <+> fullscreenEventHook <+> minimizeEventHook,
     workspaces = ["web", "chat", "mail", "offshore", "media"],
-    startupHook = startupHook gnomeConfig >> setWMName "LG3D"
+    startupHook = startupHook gnomeConfig
     } 
     `additionalKeys`
         [ ((myModMask, xK_m), withFocused minimizeWindow)
-        , ((myModMask, xK_p), spawn "synapse") 
+        , ((myModMask, xK_p), spawn "GTK_IM_MODULE='' synapse") 
         , ((myModMask .|. shiftMask, xK_m), sendMessage RestoreNextMinimizedWin) 
         , ((myModMask, xK_semicolon), prevWS)
         , ((myModMask, xK_apostrophe), nextWS)
