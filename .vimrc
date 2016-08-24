@@ -79,7 +79,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 " vim-go stuff
 let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
 let g:go_metalinter_autosave = 1
+let g:go_decls_includes = "func,type"
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 
 " Tern stuff
@@ -95,4 +97,4 @@ set modeline
 set scrolloff=999
 
 " CtrlP stuff
-nnoremap <c-o> :CtrlPBuffer<cr>
+nnoremap <c-b> :CtrlPBuffer<cr>
