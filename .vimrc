@@ -60,12 +60,6 @@ nnoremap <F4> :NERDTreeClose<CR>
 " neocomplete stuff
 let g:neocomplete#enable_at_startup = 1
 
-" Command-T stuff
-let g:CommandTWildIgnore=&wildignore . ",**/node_modules/*,**/bin/*,,**/bower_components/*,**/build/*"
-let g:CommandTMaxDepth=15
-let g:CommandTMaxFiles=100000
-let g:CommandTFilescanner="git"
-
 " latex-suite stuff
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_FoldedSections=''
@@ -85,6 +79,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 " vim-go stuff
 let g:go_auto_type_info = 1
+let g:go_metalinter_autosave = 1
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 
 " Tern stuff
@@ -98,3 +93,6 @@ set statusline=%<\ %n:%F\ %m%r%y\ %=line\ %l/%L,\ col\ %c%V
 set modeline
 " always vertically center the cursor
 set scrolloff=999
+
+" CtrlP stuff
+nnoremap <c-o> :CtrlPBuffer<cr>
