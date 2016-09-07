@@ -5,4 +5,4 @@ alias bc="bc -l"
 alias gitfind='git ls-files | grep '
 alias psgrep='ps -ef|grep'
 alias grep='grep --color=auto'
-alias less='less -F'
+alias less='less -F -X'
