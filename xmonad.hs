@@ -32,7 +32,7 @@ myManageHook = composeAll
     <+>
     composeOne [ isFullscreen -?> doFullFloat ]
 
-defaultLayouts = smartBorders( desktopLayoutModifiers (Grid ||| Tall 1 (3/100) (1/2) ||| noBorders Full) )
+defaultLayouts = smartBorders( desktopLayoutModifiers (Tall 1 (3/100) (1/2) ||| Grid ||| noBorders Full) )
 
 {-
 myLayouts = (fullscreenFloat . fullscreenFull) $ defaultLayouts $ minimize $ layoutHook gnomeConfig
