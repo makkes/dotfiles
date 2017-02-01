@@ -98,3 +98,5 @@ set scrolloff=999
 
 " CtrlP stuff
 nnoremap <c-b> :CtrlPBuffer<cr>
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yardoc/*,*.exe,*.so,*.dat,*/node_modules/*
+let g:ctrlp_max_files=10000
