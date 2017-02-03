@@ -40,7 +40,7 @@ nnoremap <C-k> :tabnext<CR>
 "nnoremap <F4> :bd<CR>
 "inoremap <F4> <c-o>:w<cr>
 "nnoremap <F5> :only<CR>
-nnoremap <silent> <F9> :TagbarToggle<CR>
+nnoremap <silent> <F9> :TagbarOpen jfc<CR>
 
 " Highlighting
 hi clear SpellBad
@@ -58,7 +58,9 @@ nnoremap <F3> :NERDTreeFind<CR>
 nnoremap <F4> :NERDTreeClose<CR>
 
 " neocomplete stuff
+let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
 
 " latex-suite stuff
 let g:Tex_DefaultTargetFormat='pdf'
@@ -100,3 +102,33 @@ set scrolloff=999
 nnoremap <c-b> :CtrlPBuffer<cr>
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yardoc/*,*.exe,*.so,*.dat,*/node_modules/*
 let g:ctrlp_max_files=10000
+
+" Tagbar
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+let g:tagbar_type_go = {  
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
