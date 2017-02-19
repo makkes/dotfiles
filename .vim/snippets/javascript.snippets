@@ -81,9 +81,10 @@ snippet addel
 	addEventListener("${1:}", ${2:function (ev) {}});
 snippet boot
 	/*eslint-env browser */
-	
-	var App = (function () {
-	    "use strict";
+
+	'use strict';
+
+	window.App = (function() {
 	    
 	    function init() {
 	        ${1:}
