@@ -4,3 +4,5 @@ keycode  38 = a A adiaeresis Adiaeresis
 keycode  39 = s S ssharp ssharp
 !keycode 108 = Alt_R Meta_R Alt_R Meta_R
 keycode 108 = Mode_switch NoSymbol Mode_switch
+keycode 33 = p P Greek_pi Greek_PI
+keycode 58 = m M Greek_mu
