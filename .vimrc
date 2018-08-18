@@ -8,11 +8,12 @@ colorscheme late_evening
 set background=dark
 set expandtab
 set hlsearch "highlight matches of current search
+set formatoptions=tcroqn
 set shiftwidth=4
 set softtabstop=4
 set smarttab
 set autoindent
-set tw=79
+set tw=150
 set mouse=a
 set ignorecase
 set number
@@ -20,6 +21,7 @@ set hidden
 set dict+=/usr/share/dict/british-english,/usr/share/dict/ngerman
 set complete+=k
 set cursorline "highlight current line for better visibility
+set colorcolumn=+1
 command! RemoveDuplicateWhitespaces 1,$s/\([^ ]\)   */\1 /ge
 
 "keyboard mappings for different file types
@@ -77,13 +79,14 @@ let g:syntastic_check_on_open=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['javascript'],
-                           \ 'passive_filetypes': ['c'] }
+                           \ 'passive_filetypes': ['c', 'go'] }
 
 " vim-go stuff
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
 let g:go_metalinter_autosave = 1
 let g:go_decls_includes = "func,type"
+let g:go_snippet_engine = "neosnippet"
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 
 " Tern stuff
@@ -104,7 +107,7 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yardoc/*,*.exe,*.so,*.dat,*/node_mo
 let g:ctrlp_max_files=10000
 
 " Tagbar
-autocmd VimEnter * nested :call tagbar#autoopen(1)
+"autocmd VimEnter * nested :call tagbar#autoopen(1)
 let g:tagbar_type_go = {  
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
