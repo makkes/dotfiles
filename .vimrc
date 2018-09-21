@@ -22,6 +22,7 @@ set dict+=/usr/share/dict/british-english,/usr/share/dict/ngerman
 set complete+=k
 set cursorline "highlight current line for better visibility
 set colorcolumn=+1
+set nostartofline
 command! RemoveDuplicateWhitespaces 1,$s/\([^ ]\)   */\1 /ge
 
 "keyboard mappings for different file types
@@ -34,7 +35,7 @@ inoremap <C-c> <CR><Esc>O
 inoremap <silent> <C-s> <C-o>:w<CR>
 inoremap <Down> <C-o>g<Down>
 inoremap <Up> <C-o>g<Up>
-inoremap jk <ESC>
+inoremap jj <ESC>
 nnoremap <Down> g<Down>
 nnoremap <Up> g<Up>
 nnoremap <C-j> :tabprev<CR>
@@ -82,9 +83,11 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['c', 'go'] }
 
 " vim-go stuff
+let g:go_fmt_autosave = 1
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
-let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave = 0
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_decls_includes = "func,type"
 let g:go_snippet_engine = "neosnippet"
 au FileType go nmap <Leader>gd <Plug>(go-doc)
