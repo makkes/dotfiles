@@ -20,6 +20,7 @@ set number
 set hidden
 set dict+=/usr/share/dict/british-english,/usr/share/dict/ngerman
 set complete+=k
+set completeopt=longest,menuone
 set cursorline "highlight current line for better visibility
 set colorcolumn=+1
 set nostartofline
