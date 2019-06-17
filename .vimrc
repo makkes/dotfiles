@@ -4,8 +4,8 @@ call pathogen#helptags()
 filetype plugin indent on
 syntax on
 set t_Co=256
-colorscheme late_evening
-set background=dark
+"colorscheme late_evening
+set background=light
 set expandtab
 set hlsearch "highlight matches of current search
 set formatoptions=tcroqn
@@ -76,6 +76,7 @@ set grepprg=grep\ -nH\ $*
 
 " Syntastic stuff
 let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_python_checkers=['flake8']
 let g:syntastic_auto_jump=0
 let g:syntastic_check_on_open=0
 let g:syntastic_auto_loc_list=1
