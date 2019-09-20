@@ -1,0 +1,41 @@
+{
+  "telemetry.enableTelemetry": false,
+  "workbench.startupEditor": "none",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.showTabs": false,
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 500,
+  "editor.rulers": [
+    120
+  ],
+  "window.zoomLevel": 0,
+  "git.confirmSync": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.hovers.currentLine.enabled": false,
+  "gitlens.hovers.enabled": false,
+  "gitlens.advanced.telemetry.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.blame.highlight.enabled": false,
+  "editor.fontFamily": "FiraCode-Retina",
+  "workbench.colorTheme": "Quiet Light",
+  "editor.fontSize": 13,
+  // "editor.quickSuggestionsDelay": 1000,
+  // "editor.hover.delay": 5000,
+  "go.useLanguageServer": true,
+  "go.toolsEnvVars": {
+    // "GOFLAGS": "-mod=vendor"
+  },
+  "[go]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "errorLens.warningColor": "rgba(180,180,0,0.3)",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.tree.indent": 20
+}
