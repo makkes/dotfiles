@@ -4,7 +4,6 @@ call pathogen#helptags()
 filetype plugin indent on
 syntax on
 set t_Co=256
-"colorscheme late_evening
 set background=light
 set expandtab
 set hlsearch "highlight matches of current search
