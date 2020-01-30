@@ -7,3 +7,4 @@ alias lld="ls --sort=time -r -lh"
 alias ls='ls --color=auto'
 alias psgrep='ps -ef|grep'
 alias tf='terraform'
+alias k='kubectl'
