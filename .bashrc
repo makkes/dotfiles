@@ -1,10 +1,17 @@
 # shellcheck disable=SC1091
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+[ -f /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:/usr/local/aws/bin
+export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
+
+# git prompt
+source /home/max/dotfiles/git-prompt.sh
+GIT_PS1_SHOWCOLORHINTS=1
+GIT_PS1_SHOWDIRTYSTATE=1
 
 # shellcheck source=/dev/null
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
@@ -25,5 +32,10 @@ export HISTTIMEFORMAT="%Y-%m-%d %T "
 export PROMPT_COMMAND="history -a"
 export PROMPT_COMMAND="echo -ne '\033]0;\007';$PROMPT_COMMAND"
 
-export BC_ENV_ARGS="-l $HOME/.bcrc"
+[ -f "$HOME/.bcrc" ] && export BC_ENV_ARGS="-l $HOME/.bcrc"
 export LESS="-iMRFX"
+
+source /home/max/.j/j.sh
+source /home/max/.j/j_completion
+source <(kubectl completion bash)
+complete -F __start_kubectl k
