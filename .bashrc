@@ -9,7 +9,7 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 
 # git prompt
-source /home/max/dotfiles/git-prompt.sh
+source $(dirname $(readlink ~/.bashrc))/git-prompt.sh
 GIT_PS1_SHOWCOLORHINTS=1
 GIT_PS1_SHOWDIRTYSTATE=1
 
