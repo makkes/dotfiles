@@ -9,8 +9,11 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 
 # git prompt
-source $(dirname $(readlink ~/.bashrc))/git-prompt.sh
+# shellcheck disable=SC1090
+source "$(dirname "$(readlink ~/.bashrc)")/git-prompt.sh"
+# shellcheck disable=SC2034
 GIT_PS1_SHOWCOLORHINTS=1
+# shellcheck disable=SC2034
 GIT_PS1_SHOWDIRTYSTATE=1
 
 # shellcheck source=/dev/null
@@ -35,7 +38,12 @@ export PROMPT_COMMAND="echo -ne '\033]0;\007';$PROMPT_COMMAND"
 [ -f "$HOME/.bcrc" ] && export BC_ENV_ARGS="-l $HOME/.bcrc"
 export LESS="-iMRFX"
 
-source /home/max/.j/j.sh
-source /home/max/.j/j_completion
+if [ -d ~/.j ] ; then
+    # shellcheck disable=SC1090
+    source ~/.j/j.sh
+    # shellcheck disable=SC1090
+    source ~/.j/j_completion
+fi
+# shellcheck disable=SC1090
 source <(kubectl completion bash)
 complete -F __start_kubectl k
