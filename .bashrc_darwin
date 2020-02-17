@@ -1,0 +1,35 @@
+export AWS_DEFAULT_REGION="us-east-1"
+export AWS_PROFILE=999867407951_Mesosphere-PowerUser
+
+source <(maws completion bash)
+source <(k completion bash | sed s/kubectl/k/g)
+complete -C 'aws_completer' aws
+complete -C /usr/local/bin/terraform terraform tf
+
+# common build flags
+# slow but always correct version
+#export CFLAGS="-I$(brew --prefix readline)/include -I$(brew --prefix openssl)/include -I$(xcrun --show-sdk-path)/usr/include"
+# fast but maybe incorrect version
+export CFLAGS="-I/usr/local/opt/readline/include -I/usr/local/opt/openssl/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include"
+
+export LESSOPEN="|/usr/local/Cellar/source-highlight/3.1.9_1/bin/src-hilite-lesspipe.sh %s"
+
+export PATH=/usr/local/opt/gnu-tar/libexec/gnubin/:$PATH
+export PATH=/usr/local/opt/findutils/libexec/gnubin/:$PATH
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH=$PATH:/usr/local/kubebuilder/bin
+export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+export PATH="~/dev/ksphere/konvoy/out-darwin:$PATH"
+source <(konvoy completion bash)
+
+export LC_ALL="C"
+
+# pyenv
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mwerner/tools/google-cloud-sdk/path.bash.inc' ]; then . '/Users/mwerner/tools/google-cloud-sdk/path.bash.inc'; fi
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mwerner/tools/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/mwerner/tools/google-cloud-sdk/completion.bash.inc'; fi
