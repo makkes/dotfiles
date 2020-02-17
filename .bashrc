@@ -53,3 +53,6 @@ fi
 # shellcheck disable=SC1090
 source <(kubectl completion bash)
 complete -F __start_kubectl k
+
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux
