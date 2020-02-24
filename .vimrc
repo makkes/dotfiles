@@ -3,6 +3,7 @@ call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 syntax on
+set encoding=utf-8
 set t_Co=256
 set background=light
 set expandtab
@@ -44,6 +45,11 @@ nnoremap <C-k> :tabnext<CR>
 "inoremap <F4> <c-o>:w<cr>
 "nnoremap <F5> :only<CR>
 nnoremap <silent> <F9> :TagbarOpen jfc<CR>
+
+" use Enter and Shift-Enter in normal mode to
+" insert new lines without entering insert mode.
+map <Enter> o<ESC>
+map <S-Enter> O<ESC>
 
 " Highlighting
 hi clear SpellBad
