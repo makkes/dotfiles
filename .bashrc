@@ -4,7 +4,6 @@
 
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/go/bin
-export PATH=$PATH:/usr/local/aws/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 
@@ -54,5 +53,8 @@ fi
 source <(kubectl completion bash)
 complete -F __start_kubectl k
 
+# If not running interactively, do not do anything
 [[ $- != *i* ]] && return
+[ ! -t 1 ] && return
+>>>>>>> tmux changes
 [[ -z "$TMUX" ]] && exec tmux
