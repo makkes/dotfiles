@@ -56,5 +56,4 @@ complete -F __start_kubectl k
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 [ ! -t 1 ] && return
->>>>>>> tmux changes
-[[ -z "$TMUX" ]] && exec tmux
+[[ -z "$TMUX" ]] && exec tmux -u
