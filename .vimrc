@@ -14,13 +14,11 @@ set softtabstop=4
 set smarttab
 set autoindent
 set tw=150
-set mouse=a
 set ignorecase
 set number
 set hidden
-set dict+=/usr/share/dict/british-english,/usr/share/dict/ngerman
-set complete+=k
-set completeopt=longest,menuone
+"set complete+=k
+"set completeopt=longest,menuone
 set cursorline "highlight current line for better visibility
 set colorcolumn=+1
 set nostartofline
@@ -45,6 +43,7 @@ nnoremap <C-k> :tabnext<CR>
 "inoremap <F4> <c-o>:w<cr>
 "nnoremap <F5> :only<CR>
 nnoremap <silent> <F9> :TagbarOpen jfc<CR>
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " use Enter and Shift-Enter in normal mode to
 " insert new lines without entering insert mode.
