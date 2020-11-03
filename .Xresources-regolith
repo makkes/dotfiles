@@ -1,0 +1,8 @@
+#include ".Xresources.d/color"
+#include ".Xresources.d/typeface"
+#include ".Xresources.d/theme"
+#include ".Xresources.d/i3-wm"
+#include ".Xresources.d/i3xrocks"
+#include ".Xresources.d/rofi"
+#include ".Xresources.d/gnome"
+#include ".Xresources.d/st-term"
