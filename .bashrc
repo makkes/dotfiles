@@ -6,6 +6,7 @@ export PATH=$PATH:~/bin
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
+export PATH=$PATH:/usr/local/kubebuilder/bin
 
 # git prompt
 # shellcheck disable=SC1090
