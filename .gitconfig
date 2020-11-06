@@ -1,0 +1,27 @@
+[user]
+	name = Max Jonas Werner
+	email = mail@makk.es
+	signingkey = 0981E8F011B08926D25BE530EB525E0F02B52140
+[color]
+	ui = always
+[push]
+	default = tracking
+[branch]
+	autosetuprebase = always
+[core]
+	pager = less -FRX
+	editor = vim
+[bz]
+	browser = firefox3
+	firefox-profile = default
+[alias]
+        wdiff = diff -U0 --color-words
+    pb = !git-prune-branches
+[credential]
+	helper = cache
+[commit]
+	gpgsign = true
+[log]
+        showSignature = true
+[alias]
+        find = !git ls-files|grep
