@@ -4,7 +4,7 @@
 #define glyph typeface_bar_glyph_workspace
 
 i3-wm.bar.font: typeface_bar
-
+i3-wm.bar.trayoutput: primary
 i3-wm.bar.background.color: color_base03
 i3-wm.bar.statusline.color: color_base1
 i3-wm.bar.separator.color: color_blue
