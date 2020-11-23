@@ -7,5 +7,6 @@
     "files.autoSaveDelay": 500,
     "window.zoomLevel": 0,
     "editor.minimap.enabled": false,
-    "workbench.editor.showTabs": false
+    "workbench.editor.showTabs": false,
+    "workbench.tree.indent": 25
 }
