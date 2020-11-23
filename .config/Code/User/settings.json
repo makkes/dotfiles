@@ -1,0 +1,11 @@
+{
+    "telemetry.enableTelemetry": false,
+    "workbench.sideBar.location": "right",
+    "go.useLanguageServer": true,
+    "editor.formatOnSave": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+    "window.zoomLevel": 0,
+    "editor.minimap.enabled": false,
+    "workbench.editor.showTabs": false
+}
