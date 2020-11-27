@@ -1,2 +1,7 @@
 Xft.dpi: 192
 rofi.dpi: 192
+URxvt.font: xft:JetBrainsMonoMedium:size=10
+URxvt.italicFont: xft:JetBrainsMonoMedium:size=10
+URxvt.foreground: #f8feff
+URxvt.background: #000000
+URxvt.scrollBar: false
