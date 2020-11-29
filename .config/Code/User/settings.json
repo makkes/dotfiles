@@ -8,5 +8,7 @@
     "window.zoomLevel": 0,
     "editor.minimap.enabled": false,
     "workbench.editor.showTabs": false,
-    "workbench.tree.indent": 25
+    "workbench.tree.indent": 25,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false
 }
