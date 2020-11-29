@@ -58,3 +58,5 @@ complete -F __start_kubectl k
 [[ $- != *i* ]] && return
 [ ! -t 1 ] && return
 [[ -z "$TMUX" ]] && exec tmux -u
+
+[[ -n "$TMUX" ]] && export TERM=tmux-256color
