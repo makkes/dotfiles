@@ -3,7 +3,7 @@
 #define typeface_wm         pango:JetBrains Mono Medium 13
 #define typeface_bar        pango:JetBrains Mono Medium 13, Material Design Icons 13
 #define typeface_rofi       Ubuntu 16
-#define typeface_terminal   JetBrains Mono:pixelsize=16:antialias=true:autohint=true
+#define typeface_terminal   JetBrains Mono:pixelsize=10:antialias=true:autohint=true
 #define typeface_gnome_terminal JetBrains Mono 10
 
 #define typeface_bar_glyph_battery_100 
