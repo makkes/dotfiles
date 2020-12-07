@@ -1,6 +1,6 @@
 #define gtk_theme           Ayu-Mirage
 #define icon_theme          Moka
-#define desktop_wallpaper   /home/max/Pictures/Wallpapers/life.png
+#define desktop_wallpaper   /home/max/Pictures/Wallpapers/default
 #define rofi_theme          /etc/regolith/styles/lascaille/rofi.rasi
 #define theme_terminal_scrollbar never
 
