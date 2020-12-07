@@ -5,10 +5,13 @@
     "editor.formatOnSave": true,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 500,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "editor.minimap.enabled": false,
     "workbench.editor.showTabs": false,
     "workbench.tree.indent": 25,
     "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "extensions.ignoreRecommendations": false,
+    "window.menuBarVisibility": "toggle",
+    "git.enabled": false,
 }
