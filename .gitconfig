@@ -25,3 +25,4 @@
         showSignature = true
 [alias]
         find = !git ls-files|grep
+        changelog = !git log --oneline --no-show-signature
