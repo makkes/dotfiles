@@ -5,3 +5,6 @@ URxvt.italicFont: xft:JetBrainsMonoMedium:size=10
 URxvt.foreground: #f8feff
 URxvt.background: #000000
 URxvt.scrollBar: false
+URxvt.perl-ext-common: font-size
+URxvt.iso14755: false
+URxvt.iso14755_52: false
