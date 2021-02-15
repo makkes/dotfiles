@@ -1,7 +1,7 @@
 #define gtk_theme           Ayu-Mirage
 #define icon_theme          Moka
 #define desktop_wallpaper   /home/max/Pictures/Wallpapers/default
-#define rofi_theme          /etc/regolith/styles/lascaille/rofi.rasi
+#define rofi_theme          ~/.config/regolith/i3/themes/rofi.rasi
 #define theme_terminal_scrollbar never
 
 #define i3wm_window_border_size         2
