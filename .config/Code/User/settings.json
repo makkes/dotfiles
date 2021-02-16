@@ -20,4 +20,12 @@
     ],
     "editor.columnSelection": false,
     "editor.fontSize": 12,
+    "workbench.colorCustomizations": {
+        // "editor.rangeHighlightBackground": "#86fc86ff",
+        "editorError.background": "#9c0505",
+    },
+    "editor.rulers": [
+        120
+    ],
+    "window.zoomLevel": -1
 }
