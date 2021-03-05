@@ -5,7 +5,7 @@
 [color]
 	ui = always
 [push]
-	default = tracking
+	default = current
 [branch]
 	autosetuprebase = always
 [core]
