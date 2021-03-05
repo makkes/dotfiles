@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/vim-autotag"]
 	path = .vim/bundle/vim-autotag
 	url = git://github.com/craigemery/vim-autotag.git
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
