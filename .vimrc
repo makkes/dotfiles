@@ -34,7 +34,6 @@ inoremap <C-c> <CR><Esc>O
 inoremap <silent> <C-s> <C-o>:w<CR>
 inoremap <Down> <C-o>g<Down>
 inoremap <Up> <C-o>g<Up>
-inoremap jj <ESC>
 nnoremap <Down> g<Down>
 nnoremap <Up> g<Up>
 nnoremap <C-j> :tabprev<CR>
