@@ -5,8 +5,8 @@ URxvt.italicFont: xft:JetBrainsMonoMedium:size=10
 URxvt.foreground: #f8feff
 URxvt.background: #000000
 URxvt.scrollBar: false
-URxvt.perl-ext-common: default,font-size,matcher
+URxvt.perl-ext-common: default,font-size,matcher,-selection
 URxvt.urlLauncher: /usr/bin/firefox
-URxvt.matcher.button: 1
+URxvt.matcher.button: 2
 URxvt.iso14755: false
 URxvt.iso14755_52: false
