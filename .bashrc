@@ -65,3 +65,6 @@ eval "$(pyenv virtualenv-init -)"
 
 # shellcheck source=/dev/null
 [ -f ~/.bashrc_local ] && . ~/.bashrc_local
+
+# disable scroll lock on CTRL+S
+stty -ixon
