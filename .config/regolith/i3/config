@@ -536,3 +536,4 @@ assign [class="Thunderbird"] $ws1
 assign [class="Telegram"] $ws1
 
 mouse_warping none
+workspace_layout tabbed
