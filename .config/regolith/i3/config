@@ -528,7 +528,7 @@ exec --no-startup-id $i3-wm.program.3
 
 exec --no-startup-id x-terminal-emulator
 exec --no-startup-id firefox
-assign [class="URxvt"] $ws2
+assign [class="Alacritty"] $ws2
 assign [class="Firefox"] $ws3
 assign [class="Code"] $ws4
 assign [class="Slack"] $ws1
