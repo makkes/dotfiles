@@ -1,3 +1,4 @@
+alias watch='watch '
 alias bc="bc -l"
 alias dim='identify -format "%wx%h %f\n"'
 alias gitfind='git ls-files | grep '
