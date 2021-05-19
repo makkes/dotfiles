@@ -2,6 +2,7 @@
     "telemetry.enableTelemetry": false,
     "workbench.sideBar.location": "right",
     "go.useLanguageServer": true,
+    "go.toolsManagement.autoUpdate": true,
     "editor.formatOnSave": true,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 500,
@@ -27,5 +28,6 @@
     "editor.rulers": [
         120
     ],
-    "window.zoomLevel": -1
+    "window.zoomLevel": -1,
+    "editor.quickSuggestionsDelay": 500
 }
