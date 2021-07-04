@@ -6,7 +6,7 @@ filetype plugin indent on
 syntax on
 set encoding=utf-8
 set t_Co=256
-set background=dark
+set background=light
 set expandtab
 set hlsearch "highlight matches of current search
 set formatoptions=tcroqn

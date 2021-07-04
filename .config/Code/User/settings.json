@@ -32,6 +32,7 @@
     "window.zoomLevel": -1,
     "editor.quickSuggestionsDelay": 0,
     "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Solarized Light",
     "security.workspace.trust.enabled": false,
     "editor.renderLineHighlight": "all",
     "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:,.<>/?'\"",
