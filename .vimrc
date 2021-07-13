@@ -1,3 +1,4 @@
+set nofoldenable
 filetype off
 call pathogen#infect()
 call pathogen#helptags()
