@@ -1,0 +1,3 @@
+binary=kubectl
+repo=kubernetes/kubernetes
+asset_download_pattern=https://dl.k8s.io/v!!VERSION!!/kubernetes-client-!!OS!!-!!ARCH!!.tar.gz
