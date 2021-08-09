@@ -19,9 +19,10 @@
     "go.testFlags": [
         "-v"
     ],
-    "editor.columnSelection": false,
     "editor.fontSize": 12,
     "workbench.colorCustomizations": {
+        "editor.lineHighlightBackground": "#383737",
+        "editor.lineHighlightBorder": "#742f2f",
         // "editor.rangeHighlightBackground": "#86fc86ff",
         "editorError.background": "#9c0505",
     },
@@ -29,5 +30,17 @@
         120
     ],
     "window.zoomLevel": -1,
-    "editor.quickSuggestionsDelay": 500
+    "editor.quickSuggestionsDelay": 0,
+    "workbench.startupEditor": "none",
+    "security.workspace.trust.enabled": false,
+    "editor.renderLineHighlight": "all",
+    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:,.<>/?'\"",
+    "quick-select.includeBackticks": false,
+    "quick-select.selectDoubleQuote": true,
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-j>": false,
+        "<C-f>": false,
+        "<C-w>": false,
+    },
 }
