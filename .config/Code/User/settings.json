@@ -21,10 +21,11 @@
     ],
     "editor.fontSize": 12,
     "workbench.colorCustomizations": {
-        "editor.lineHighlightBackground": "#383737",
-        "editor.lineHighlightBorder": "#742f2f",
+        "editorCursor.foreground": "#ffff00",
+        "editor.lineHighlightBackground": "#E1E1E1",
+        // "editor.lineHighlightBorder": "#742f2f",
         // "editor.rangeHighlightBackground": "#86fc86ff",
-        "editorError.background": "#9c0505",
+        "editorError.background": "#ff5353",
     },
     "editor.rulers": [
         120
