@@ -40,6 +40,7 @@
     "quick-select.includeBackticks": false,
     "quick-select.selectDoubleQuote": true,
     "vim.handleKeys": {
+        "<C-q>": false,
         "<C-d>": true,
         "<C-j>": false,
         "<C-f>": false,
