@@ -1,5 +1,6 @@
 endpoint: https://jira.d2iq.com
 user: maxjonaswerner
+password-source: keyring
 project: D2IQ
 custom-commands:
   - name: flakes
@@ -17,8 +18,8 @@ custom-commands:
     script: |-
       if [ -n "$JIRA_PROJECT" ]; then
           # if `project: ...` configured just list the issues for current project
-            {{jira}} list --template table --query "sprint = 2356 and type != epic {{if not options.all}}and assignee = currentUser(){{end}} {{if not options.resolved}}and resolution = unresolved{{end}} and project=$JIRA_PROJECT ORDER BY rank asc, created"
+            {{jira}} list --template table --query "sprint = 2369 and type != epic {{if not options.all}}and assignee = currentUser(){{end}} {{if not options.resolved}}and resolution = unresolved{{end}} and project=$JIRA_PROJECT ORDER BY rank asc, created"
       else
           # otherwise list issues for all project
-          {{jira}} list --template table --query "sprint = 2356 and type != epic and resolution = unresolved {{if options.assigned}}and assignee = currentUser(){{end}} ORDER BY rank asc, created"
+          {{jira}} list --template table --query "sprint = 2369 and type != epic and resolution = unresolved {{if options.assigned}}and assignee = currentUser(){{end}} ORDER BY rank asc, created"
       fi
