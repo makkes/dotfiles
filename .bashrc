@@ -56,17 +56,17 @@ export PATH="/home/max/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# shellcheck source=/dev/null
+[ -f ~/.bashrc_local ] && . ~/.bashrc_local
+
+. $HOME/.asdf/asdf.sh
+
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 [ ! -t 1 ] && return
 [[ -z "$TMUX" ]] && exec tmux -u
 
 [[ -n "$TMUX" ]] && export TERM=screen-256color
-
-# shellcheck source=/dev/null
-[ -f ~/.bashrc_local ] && . ~/.bashrc_local
-
-. $HOME/.asdf/asdf.sh
 
 # disable scroll lock on CTRL+S
 stty -ixon
