@@ -52,6 +52,9 @@ fi
 source <(kubectl completion bash)
 complete -F __start_kubectl k
 
+source <(kommander completion bash)
+complete -F __start_kommander komm
+
 export PATH="/home/max/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
