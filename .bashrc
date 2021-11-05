@@ -67,7 +67,15 @@ eval "$(pyenv virtualenv-init -)"
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 [ ! -t 1 ] && return
-[[ -z "$TMUX" ]] && exec tmux -u
+
+# If not running in a tmux session try to attach to an existing one or create a new one if none exists.
+if [[ -z "$TMUX" ]] ; then
+    if tmux ls ; then
+        exec tmux at
+    else
+        exec tmux -u
+    fi
+fi
 
 [[ -n "$TMUX" ]] && export TERM=screen-256color
 
