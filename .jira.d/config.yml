@@ -16,10 +16,6 @@ custom-commands:
         short: a
         type: bool
     script: |-
-      if [ -n "$JIRA_PROJECT" ]; then
-          # if `project: ...` configured just list the issues for current project
-            {{jira}} list --template table --query "sprint = 2369 and type != epic {{if not options.all}}and assignee = currentUser(){{end}} {{if not options.resolved}}and resolution = unresolved{{end}} and project=$JIRA_PROJECT ORDER BY rank asc, created"
-      else
-          # otherwise list issues for all project
-          {{jira}} list --template table --query "sprint = 2369 and type != epic and resolution = unresolved {{if options.assigned}}and assignee = currentUser(){{end}} ORDER BY rank asc, created"
-      fi
+      SPRINT=2386
+      EPIC=D2IQ-75137
+      {{jira}} list --template table --query "sprint = $SPRINT and type != epic {{if not options.all}}and assignee = currentUser(){{end}} {{if not options.resolved}}and resolution = unresolved{{end}} and project=$JIRA_PROJECT and (key = $EPIC OR \"Epic Link\" = $EPIC OR issueFunction in subtasksOf(\"'Epic Link'=$EPIC\")) ORDER BY rank asc, created"
