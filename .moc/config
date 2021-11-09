@@ -311,7 +311,7 @@ Theme = yellow_red_theme
 #             Fastdir3 = /mp3/rap
 #             Fastdir4 = /mp3/etc
 #
-Fastdir1 = /media/max/frankstein-bkp/home/max/Music
+#Fastdir1 =
 #Fastdir2 =
 #Fastdir3 =
 #Fastdir4 =
