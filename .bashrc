@@ -60,6 +60,9 @@ export PATH="/home/max/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# consume SSH agent socket
+export SSH_AUTH_SOCK=/run/user/$(id -u)/ssh-agent.socket
+
 # shellcheck source=/dev/null
 [ -f ~/.bashrc_local ] && . ~/.bashrc_local
 
