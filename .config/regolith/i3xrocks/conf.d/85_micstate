@@ -1,2 +1,3 @@
 [micstate]
 interval=1
+signal=10
