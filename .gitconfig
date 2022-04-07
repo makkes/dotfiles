@@ -3,7 +3,7 @@
 	email = mail@makk.es
 	signingkey = 0981E8F011B08926D25BE530EB525E0F02B52140
 [color]
-	ui = always
+	ui = auto
 [push]
 	default = current
 [branch]
@@ -22,9 +22,11 @@
 [commit]
 	gpgsign = true
 [log]
-        showSignature = true
+#        showSignature = true
 [alias]
         find = !git ls-files|grep
         changelog = !git log --oneline --no-show-signature
 [url "git@github.com:"]
 	insteadOf = https://github.com
+[init]
+	defaultBranch = main
