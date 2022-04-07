@@ -6,7 +6,6 @@ filetype plugin indent on
 syntax on
 set encoding=utf-8
 set t_Co=256
-set background=light
 colorscheme solarized
 set expandtab
 set hlsearch "highlight matches of current search
@@ -147,3 +146,5 @@ let g:tagbar_type_go = {
 \ }
 
 set backspace=indent,eol,start
+
+runtime vimrc_local
