@@ -1,5 +1,5 @@
 {
-    "telemetry.enableTelemetry": false,
+    "telemetry.telemetryLevel": "off",
     "workbench.sideBar.location": "right",
     "go.useLanguageServer": true,
     "go.toolsManagement.autoUpdate": true,
@@ -21,8 +21,8 @@
     ],
     "editor.fontSize": 12,
     "workbench.colorCustomizations": {
-        "editorCursor.foreground": "#ffff00",
-        "editor.lineHighlightBackground": "#E1E1E1",
+        // "editorCursor.foreground": "#ffff00",
+        // "editor.lineHighlightBackground": "#E1E1E1",
         // "editor.lineHighlightBorder": "#742f2f",
         // "editor.rangeHighlightBackground": "#86fc86ff",
         "editorError.background": "#ff5353",
@@ -30,7 +30,6 @@
     "editor.rulers": [
         120
     ],
-    "window.zoomLevel": -1,
     "editor.quickSuggestionsDelay": 0,
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Solarized Light",
@@ -46,4 +45,5 @@
         "<C-f>": false,
         "<C-w>": false,
     },
+    "window.zoomLevel": -1,
 }
