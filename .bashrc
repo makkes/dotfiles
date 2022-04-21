@@ -3,8 +3,6 @@
 [ -f /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
 export PATH=$PATH:~/bin
-export PATH=$PATH:~/go/bin
-export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 export PATH=$PATH:/usr/local/kubebuilder/bin
 
