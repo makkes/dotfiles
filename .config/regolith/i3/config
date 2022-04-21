@@ -310,6 +310,10 @@ bindsym $mod+Shift+n exec $i3-wm.program.files
 set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /usr/bin/rofication-gui
 bindsym $mod+n exec $i3-wm.program.notification_ui
 
+## Modify // Settings // <> s ##
+set_from_resource $i3-wm.program.sound i3-wm.program.sound gnome-control-center sound
+bindsym $mod+s exec $i3-wm.program.sound
+
 ###############################################################################
 # Workspace Management
 ###############################################################################
