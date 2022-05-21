@@ -531,7 +531,7 @@ set_from_resource $i3-wm.program.3 i3-wm.program.3 :
 exec --no-startup-id $i3-wm.program.3
 
 exec --no-startup-id x-terminal-emulator
-exec --no-startup-id firefox
+exec --no-startup-id firefox -P default-release
 assign [class="Alacritty"] $ws2
 assign [class="firefox"] $ws3
 assign [class="Code"] $ws4
