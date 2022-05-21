@@ -3,6 +3,7 @@ source ~/.mutt/aliases
 
 set ssl_starttls = no
 set ssl_force_tls = yes
+set hostname = e13.dev
 source ~/.mutt/imap-credentials
 set imap_idle = yes
 set imap_check_subscribed
@@ -22,6 +23,7 @@ set imap_keepalive = 300
 set sort = threads
 set delete = yes
 set mark_old=no
+set pager_index_lines=6
 
 auto_view text/html
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
@@ -35,3 +37,5 @@ set crypt_replyencrypt = yes
 set crypt_replysignencrypted = yes
 
 unset confirmappend
+
+folder-hook . 'set record=^'
