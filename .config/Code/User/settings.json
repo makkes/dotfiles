@@ -45,5 +45,12 @@
         "<C-f>": false,
         "<C-w>": false,
     },
-    "window.zoomLevel": -1,
+    "[go]": {
+        "editor.insertSpaces": false,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+        "editor.suggest.snippetsPreventQuickSuggestions": false
+    },
 }
