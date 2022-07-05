@@ -81,3 +81,4 @@ eval "$(asdf exec direnv hook bash)"
 
 # disable scroll lock on CTRL+S
 stty -ixon
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/bashrc"
