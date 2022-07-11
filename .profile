@@ -27,4 +27,4 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 export LC_TIME=en_US.UTF-8
-source "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
