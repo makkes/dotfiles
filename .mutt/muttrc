@@ -1,12 +1,17 @@
 source ~/.mutt/mutt-colors-solarized-light-16.muttrc
+
 source ~/.mutt/aliases
+set alias_file=~/.mutt/aliases
 
 set ssl_starttls = no
 set ssl_force_tls = yes
+# used in the message-id header
 set hostname = e13.dev
 source ~/.mutt/imap-credentials
 set imap_idle = yes
 set imap_check_subscribed
+set timeout=30
+set mail_check=5
 set from = 'max@e13.dev'
 set realname = 'Max Jonas Werner'
 set folder = imaps://imap.mailbox.org:993
@@ -23,7 +28,11 @@ set imap_keepalive = 300
 set sort = threads
 set delete = yes
 set mark_old=no
+# show this number of pager lines when a msg is open
 set pager_index_lines=6
+set index_format="%4C %Z %D %-15.15L (%?l?%4l&%4c?) %s"
+set date_format="%b %d %l:%M%P"
+set markers=no
 
 auto_view text/html
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
@@ -38,4 +47,8 @@ set crypt_replysignencrypted = yes
 
 unset confirmappend
 
+# save sent messages in the current folder
 folder-hook . 'set record=^'
+
+macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mutt/mail.html<enter><shell-escape>xdg-open ~/.cache/mutt/mail.html<enter>"
+push <last-entry>
