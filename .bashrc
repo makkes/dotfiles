@@ -51,6 +51,8 @@ fi
 source <(kubectl completion bash)
 complete -F __start_kubectl k
 
+(x=$(command -v flux) ; [ -n "$x" ] && [ -x "$x" ]) && source <(flux completion bash)
+
 #export PATH="/home/max/.pyenv/bin:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
