@@ -536,7 +536,7 @@ assign [class="Code"] $ws4
 assign [class="Slack"] $ws1
 assign [class="Thunderbird"] $ws1
 assign [class="Signal"] $ws1
-assign [class="Spotify"] $ws5
+for_window [class="Spotify"] move to workspace $ws5
 
 mouse_warping none
 workspace_layout tabbed
