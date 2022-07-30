@@ -22,6 +22,7 @@ export LS_COLORS='rs=0:di=01;34:ln=00;36:mh=00:pi=40;33:so=00;35:do=00;35:bd=40;
 
 __kube_ctx() {
     [ -r "${PWD}" ] || return
+    [ -x $(command -v kubectl) ] || return
     ctx=$(kubectl config current-context 2>/dev/null | cut -c1-20)
     [ -z "$ctx" ] && return 0
     # shellcheck disable=SC2059
@@ -48,10 +49,10 @@ if [ -d ~/.j ] ; then
     source ~/.j/j_completion
 fi
 # shellcheck disable=SC1090
-source <(kubectl completion bash)
+command -v kubectl > /dev/null 2>&1 && source <(kubectl completion bash)
 complete -F __start_kubectl k
 
-(x=$(command -v flux) ; [ -n "$x" ] && [ -x "$x" ]) && source <(flux completion bash)
+command -v flux > /dev/null 2>&1 && source <(flux completion bash)
 
 #export PATH="/home/max/.pyenv/bin:$PATH"
 #eval "$(pyenv init -)"
