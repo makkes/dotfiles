@@ -332,6 +332,8 @@ bindsym $mod+i bar mode toggle
 floating_maximum_size -1 x -1
 for_window [class="Gnome-control-center"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
+for_window [class="guvcview"] floating enable
+for_window [class="Guvcview"] floating enable
 
 ###############################################################################
 # Window Resize and Gaps
