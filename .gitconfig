@@ -1,39 +1,39 @@
 [user]
-        name = Max Jonas Werner
-        email = max@e13.dev
-        signingkey = 0981E8F011B08926D25BE530EB525E0F02B52140
+    name = Max Jonas Werner
+    email = max@e13.dev
+    signingkey = 0981E8F011B08926D25BE530EB525E0F02B52140
 [color]
-        ui = auto
+    ui = auto
 [push]
-        default = current
+    default = current
 [branch]
-        autosetuprebase = always
+    autosetuprebase = always
 [core]
-        pager = less -FRX
-        editor = vim
+    pager = less -FRX
+    editor = vim
 [bz]
-        browser = firefox3
-        firefox-profile = default
+    browser = firefox3
+    firefox-profile = default
 [alias]
-        wdiff = diff -U0 --color-words
-        pb = !git-prune-branches
+    wdiff = diff -U0 --color-words
+    pb = !git-prune-branches
 [credential]
-        helper = cache
+    helper = cache
 [commit]
-        gpgsign = true
+    gpgsign = true
 [log]
-        ;showSignature = true
+    ;showSignature = true
 [alias]
-        find = !git ls-files|grep
-        changelog = !git log --oneline --no-show-signature
+    find = !git ls-files|grep
+    changelog = !git log --oneline --no-show-signature
 [url "git@github.com:"]
-        insteadOf = https://github.com
+    insteadOf = https://github.com
 ;[init]
-        ;defaultBranch = main
+    ;defaultBranch = main
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [grep]
-	lineNumber = true
+    lineNumber = true
