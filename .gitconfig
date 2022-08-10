@@ -37,3 +37,5 @@
     required = true
 [grep]
     lineNumber = true
+[tag]
+    sort = version:refname
