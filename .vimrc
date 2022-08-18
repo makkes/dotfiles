@@ -148,15 +148,18 @@ let g:tagbar_type_go = {
 set backspace=indent,eol,start
 
 function! ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"
-    return 1
-  endif
+    if &ft =~ 'gitcommit'
+        return
+    endif
+    if line("'\"") <= line("$")
+        normal! g`"
+        return 1
+    endif
 endfunction
 
 augroup resCur
-  autocmd!
-  autocmd BufWinEnter * call ResCur()
+    autocmd!
+    autocmd BufWinEnter * call ResCur()
 augroup END
 
 runtime vimrc_local
