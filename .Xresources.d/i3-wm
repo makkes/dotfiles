@@ -45,6 +45,8 @@ i3-wm.client.urgent.color.text: color_base3
 i3-wm.client.urgent.color.indicator: color_red
 i3-wm.client.urgent.color.child_border:
 
+i3-wm.program.notifications: dunst
+
 #define glyph_font QUOTE(typeface_bar_glyph)
 
 #define WORKSPACE_NAME(INDEX, NAME, FONT, COLOR, GLYPH) INDEX:<span font_desc=FONT> NAME </span><span foreground=COLOR>GLYPH</span>
