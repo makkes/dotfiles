@@ -190,7 +190,7 @@ bindsym $mod+Ctrl+m move to scratchpad
 bindsym $mod+Shift+t focus mode_toggle
 
 ## Modify // Window Layout Mode // <> t ##
-bindsym $mod+t layout toggle tabbed splith splitv
+bindsym $mod+t layout toggle splith tabbed splitv
 
 ## Modify // Move Window to Workspace 1 - 10 // <><Shift> 0..9 ##
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -513,7 +513,7 @@ exec_always --no-startup-id $i3-wm.program.compositor
 
 # Start Rofication for notifications
 set_from_resource $i3-wm.program.notifications i3-wm.program.notifications /usr/bin/rofication-daemon
-exec --no-startup-id $i3-wm.program.notifications
+exec_always --no-startup-id $i3-wm.program.notifications
 
 # Hide the mouse pointer if unused for a duration
 set_from_resource $i3-wm.program.unclutter i3-wm.program.nclutter /usr/bin/unclutter -b
@@ -539,7 +539,8 @@ assign [class="Code"] $ws4
 assign [class="Slack"] $ws1
 assign [class="Thunderbird"] $ws1
 assign [class="Signal"] $ws1
+assign [class="mutt"] $ws1
 for_window [class="Spotify"] move to workspace $ws5
 
 mouse_warping none
-workspace_layout tabbed
+workspace_layout default
