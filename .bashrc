@@ -50,7 +50,7 @@ if [ -d ~/.j ] ; then
 fi
 # shellcheck disable=SC1090
 command -v kubectl > /dev/null 2>&1 && source <(kubectl completion bash)
-complete -F __start_kubectl k
+complete -o default -F __start_kubectl k
 
 command -v flux > /dev/null 2>&1 && source <(flux completion bash)
 
