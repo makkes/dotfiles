@@ -1,6 +1,5 @@
 {
     "telemetry.telemetryLevel": "off",
-    "workbench.sideBar.location": "right",
     "go.useLanguageServer": true,
     "go.toolsManagement.autoUpdate": true,
     "editor.formatOnSave": true,
@@ -53,4 +52,5 @@
         },
         "editor.suggest.snippetsPreventQuickSuggestions": false
     },
+    "window.titleBarStyle": "custom",
 }
