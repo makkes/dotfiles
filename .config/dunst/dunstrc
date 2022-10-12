@@ -1,6 +1,6 @@
 [global]
 width = 500
-transparency = 30
+transparency = 10
 monitor = 0
 follow = mouse
 indicate_hidden = yes
