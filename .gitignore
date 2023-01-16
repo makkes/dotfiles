@@ -2,3 +2,4 @@
 .vim/spell/
 .config/alacritty/theme.yml
 .config/alacritty/host.yml
+.vim/vimrc_local
