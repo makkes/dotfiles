@@ -162,4 +162,4 @@ augroup resCur
     autocmd BufWinEnter * call ResCur()
 augroup END
 
-runtime vimrc_local
+source $HOME/.vimrc_local
