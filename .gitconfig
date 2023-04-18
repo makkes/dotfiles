@@ -1,6 +1,6 @@
 [user]
     name = Max Jonas Werner
-    email = max@e13.dev
+    email = mail@makk.es
     signingkey = 0981E8F011B08926D25BE530EB525E0F02B52140
 [color]
     ui = auto
@@ -39,3 +39,5 @@
     lineNumber = true
 [tag]
     sort = version:refname
+[init]
+	defaultBranch = main
