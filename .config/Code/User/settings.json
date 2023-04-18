@@ -12,8 +12,6 @@
     "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": false,
     "window.menuBarVisibility": "toggle",
-    "git.enabled": false,
-    "arduino.path": "/home/max/software/arduino-1.8.13",
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "go.testFlags": [
         "-v"
@@ -24,14 +22,14 @@
         // "editor.lineHighlightBackground": "#E1E1E1",
         // "editor.lineHighlightBorder": "#742f2f",
         // "editor.rangeHighlightBackground": "#86fc86ff",
-        "editorError.background": "#ff5353",
+        "editorError.background": "#ad0202a0",
     },
     "editor.rulers": [
         120
     ],
-    "editor.quickSuggestionsDelay": 0,
+    "editor.quickSuggestionsDelay": 500,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "Solarized Dark",
     "security.workspace.trust.enabled": false,
     "editor.renderLineHighlight": "all",
     "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:,.<>/?'\"",
@@ -53,4 +51,17 @@
         "editor.suggest.snippetsPreventQuickSuggestions": false
     },
     "window.titleBarStyle": "custom",
+    "workbench.layoutControl.enabled": false,
+    "arduino.useArduinoCli": true,
+    "terminal.integrated.allowChords": false,
+    "git.confirmSync": false,
+    "git.openRepositoryInParentFolders": "never",
+    "editor.wordWrap": "on",
+    "[markdown]": {
+        "editor.wordWrap": "on"
+    },
+    "editor.wordWrapColumn": 120,
+    "window.zoomLevel": 2,
+    "editor.cursorBlinking": "phase",
+    "editor.cursorStyle": "block",
 }
