@@ -30,7 +30,6 @@ exec --no-startup-id udiskie -a -n --tray
 
 # Start user apps
 exec --no-startup-id kitty
-exec --no-startup-id firefox -P default-release
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -80,7 +79,7 @@ bindsym $mod+n exec rofication-gui.py
 bindsym $mod+Shift+q kill
 
 # A more modern dmenu replacement is rofi:
-bindsym $mod+space exec "rofi -modi drun,run -show drun"
+bindsym $mod+space exec "rofi -dpi 192 -modi drun,run -show drun"
 
 bindsym $mod+Ctrl+space exec rofi -show window
 
@@ -273,3 +272,5 @@ mouse_warping none
 gaps inner 5
 gaps outer 0
 smart_gaps on
+
+include config_local

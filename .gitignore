@@ -3,3 +3,4 @@
 .config/alacritty/theme.yml
 .config/alacritty/host.yml
 .vim/vimrc_local
+.config/i3/config_local
