@@ -12,6 +12,7 @@
     "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": false,
     "window.menuBarVisibility": "toggle",
+    "arduino.path": "/home/max/software/arduino-1.8.13",
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "go.testFlags": [
         "-v"
@@ -64,4 +65,5 @@
     "window.zoomLevel": 2,
     "editor.cursorBlinking": "phase",
     "editor.cursorStyle": "block",
+    "git.enabled": true,
 }
