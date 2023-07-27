@@ -235,7 +235,10 @@ bindsym $mod+Shift+P mode "$mode_system"
 # finds out, if available)
 bar {
     tray_output primary
-    font pango:JetBrains Mono Medium 10
+    output primary
+    font pango:Font Awesome 10
+    separator_symbol "    "
+
     status_command i3status
     colors {
         focused_workspace #3d3d3d #3d3d3d #cccccc
