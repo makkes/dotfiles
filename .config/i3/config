@@ -236,8 +236,8 @@ bindsym $mod+Shift+P mode "$mode_system"
 bar {
     tray_output primary
     output primary
-    font pango:Font Awesome 10
-    separator_symbol "    "
+    font pango:Robot Light 10
+    separator_symbol "   "
 
     status_command i3status
     colors {

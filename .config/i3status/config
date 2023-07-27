@@ -20,35 +20,35 @@ order += "disk /"
 order += "time"
 
 wireless _first_ {
-        format_up = " (%quality at %essid) %ip"
+        format_up = "  (%quality at %essid) %ip"
         format_down = ""
         format_quality = "%d%s"
 }
 
 ethernet _first_ {
-        format_up = " %ip (%speed)"
+        format_up = "  %ip (%speed)"
         format_down = ""
 }
 
 battery all {
-        format = " %status %percentage %remaining"
+        format = "  %status %percentage %remaining"
         format_percentage = "%.00f%s"
 }
 
 disk "/" {
-        format = " %percentage_avail"
+        format = "  %percentage_avail"
 }
 
 load {
-        format = " %1min"
+        format = "  %1min"
 }
 
 memory {
-        format = " %used/%available"
+        format = "  %used/%available"
         threshold_degraded = "1G"
-        format_degraded = " < %available"
+        format_degraded = "   < %available"
 }
 
 time {
-        format = " %a %m/%d %I:%M:%S"
+        format = "  %a %m/%d %I:%M:%S"
 }
