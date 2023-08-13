@@ -60,6 +60,9 @@ bindsym Shift+XF86MonBrightnessUp exec --no-startup-id brightnessControl.sh up 1
 # xrandr
 bindsym $mod+d exec --no-startup-id profile standalone
 
+# wifi
+bindsym $mod+w exec --no-startup-id rfkill toggle wifi
+
 # disable titlebar
 default_border pixel 0
 default_floating_border pixel 0
