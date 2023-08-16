@@ -12,25 +12,28 @@
     "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": false,
     "window.menuBarVisibility": "toggle",
-    "arduino.path": "/home/max/software/arduino-1.8.13",
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "go.testFlags": [
-        "-v"
+        "-v",
+        "-count=1",
     ],
+    "go.delveConfig": {
+        "showGlobalVariables": true,
+    },
     "editor.fontSize": 12,
     "workbench.colorCustomizations": {
         // "editorCursor.foreground": "#ffff00",
         // "editor.lineHighlightBackground": "#E1E1E1",
         // "editor.lineHighlightBorder": "#742f2f",
         // "editor.rangeHighlightBackground": "#86fc86ff",
-        "editorError.background": "#ad0202a0",
+        "editorError.background": "#ad020214",
     },
     "editor.rulers": [
         120
     ],
     "editor.quickSuggestionsDelay": 500,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Solarized Light",
     "security.workspace.trust.enabled": false,
     "editor.renderLineHighlight": "all",
     "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:,.<>/?'\"",
@@ -52,9 +55,19 @@
         "editor.suggest.snippetsPreventQuickSuggestions": false
     },
     "window.titleBarStyle": "custom",
+    "idf.saveScope": 1,
+    "idf.espIdfPath": "/home/max/dev/esp/esp-idf",
+    "idf.pythonBinPath": "/home/max/.espressif/python_env/idf4.4_py3.10_env/bin/python",
+    "idf.toolsPath": "/home/max/.espressif",
+    "idf.customExtraPaths": "/home/max/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32-elf/bin:/home/max/.espressif/tools/xtensa-esp32s2-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32s2-elf/bin:/home/max/.espressif/tools/xtensa-esp32s3-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32s3-elf/bin:/home/max/.espressif/tools/riscv32-esp-elf/esp-2021r2-patch3-8.4.0/riscv32-esp-elf/bin:/home/max/.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin:/home/max/.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205/esp32s2ulp-elf-binutils/bin:/home/max/.espressif/tools/cmake/3.23.1/bin:/home/max/.espressif/tools/openocd-esp32/v0.11.0-esp32-20220411/openocd-esp32/bin:/home/max/.espressif/tools/ninja/1.10.2",
+    "idf.customExtraVars": {
+        "OPENOCD_SCRIPTS": "/home/max/.espressif/tools/openocd-esp32/v0.11.0-esp32-20220411/openocd-esp32/share/openocd/scripts"
+    },
+    "idf.gitPath": "git",
     "workbench.layoutControl.enabled": false,
     "arduino.useArduinoCli": true,
     "terminal.integrated.allowChords": false,
+    "terminal.integrated.fontSize": 10,
     "git.confirmSync": false,
     "git.openRepositoryInParentFolders": "never",
     "editor.wordWrap": "on",
@@ -64,6 +77,4 @@
     "editor.wordWrapColumn": 120,
     "window.zoomLevel": 2,
     "editor.cursorBlinking": "phase",
-    "editor.cursorStyle": "block",
-    "git.enabled": true,
 }
