@@ -1,0 +1,10 @@
+[Unit]
+Description=Sets a random wallpaper
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/bin/env bash set-random-wallpaper.sh
+
+[Install]
+WantedBy=default.target
