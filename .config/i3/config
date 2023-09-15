@@ -37,7 +37,7 @@ exec --no-startup-id kitty
 
 exec --no-startup-id xscreensaver
 
-#exec_always --no-startup-id picom
+exec_always --no-startup-id picom
 
 # media keys
 set $refresh_i3status killall -SIGUSR1 i3status
