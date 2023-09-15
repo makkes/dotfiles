@@ -5,6 +5,8 @@ Description=Sets a random wallpaper
 Type=oneshot
 RemainAfterExit=no
 ExecStart=/usr/bin/env bash set-random-wallpaper.sh
+Restart=on-failure
+RestartSec=3
 
 [Install]
 WantedBy=default.target
