@@ -56,8 +56,7 @@ bindsym Shift+XF86MonBrightnessDown exec --no-startup-id brightnessControl.sh do
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id brightnessControl.sh up 1
 
 # xrandr
-bindsym $mod+s exec --no-startup-id profile standalone
-bindsym $mod+m exec --no-startup-id profile monitor
+bindsym $mod+m exec --no-startup-id profile switch
 
 # wifi
 bindsym $mod+w exec --no-startup-id rfkill toggle wifi
