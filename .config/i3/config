@@ -79,6 +79,9 @@ bindsym $mod+n exec rofication-gui.py
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# make focused window sticky
+bindsym $mod+Shift+s sticky toggle
+
 # A more modern dmenu replacement is rofi:
 bindsym $mod+space exec "rofi -dpi 192 -modi drun,run -show drun"
 
