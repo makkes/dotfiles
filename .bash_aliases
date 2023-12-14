@@ -21,3 +21,6 @@ alias kdc='kind delete cluster'
 ## one-liners
 alias k-priv="k get po -A -o json | jq '.items[]|.metadata as \$meta|.spec.containers[]|select(.securityContext.privileged==true)|[\$meta.namespace, \$meta.name, .name]|@tsv' -r|column -t"
 alias k-privesc="k get po -A -o json | jq '.items[]|.metadata as \$meta|.spec.containers[]|select(.securityContext.allowPrivilegeEscalation!=false)|[\$meta.namespace, \$meta.name, .name]|@tsv' -r|column -t"
+
+## virtualization
+alias virsh="virsh -c qemu:///system"
