@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Webcam
-Exec=mpv --profile=low-latency --demuxer-lavf-o=video_size=1920x1080,input_format=h264 --no-audio /dev/video4
+Exec=mpv --profile=low-latency --demuxer-lavf-o=video_size=1920x1080,input_format=h264 --no-audio /dev/video2
 Terminal=false
 X-MultipleArgs=false
 Type=Application
