@@ -1,21 +1,21 @@
 [global]
-width = 500
+width = 350
 scale = 0
 progress_bar_frame_width = 0
 progress_bar_height = 20
-transparency = 10
+transparency = 5
 monitor = 0
 follow = keyboard
 indicate_hidden = yes
 shrink = no
 separator_height = 0
-padding = 50
-horizontal_padding = 50
+padding = 20
+horizontal_padding = 20
 frame_width = 0
 gap_size = 3
 sort = no
 idle_threshold = 120
-font = rissole 12
+font = liberation sans 10
 line_height = 4
 markup = full
 format = <i>%a</i>\n<b>%s</b>\n%b
@@ -26,7 +26,7 @@ ignore_newline = no
 stack_duplicates = true
 hide_duplicate_count = no
 show_indicators = yes
-corner_radius = 0
+corner_radius = 20
 icon_position = left
 icon_path = "/usr/share/icons/Adwaita/symbolic/status"
 sticky_history = yes
@@ -50,8 +50,8 @@ frame_color = "#8bc34a"
 
 [urgency_normal]
 timeout = 8
-background = "#141c21"
-foreground = "#93a1a1"
+foreground = "#141c21"
+background = "#ebeff0"
 frame_color = "#ba68c8"
 
 [urgency_critical]

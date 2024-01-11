@@ -245,9 +245,11 @@ bar {
 
     status_command i3status
     colors {
-        focused_workspace #3d3d3d #3d3d3d #cccccc
-        active_workspace  #3d3d3d #3d3d3d #666666 
-        inactive_workspace #181818 #181818 #666666
+        background #faf4ed
+        statusline #575279
+        focused_workspace #faf4ed #e6c7a3 #575279
+        active_workspace  #faf4ed #faf4ed #575279
+        inactive_workspace #faf4ed #faf4ed #9893a5
         urgent_workspace #c7162b #c7162b #878787
     }
 }
@@ -282,3 +284,4 @@ gaps outer 0
 smart_gaps on
 
 include config_local
+include theme
