@@ -32,15 +32,17 @@ export PS1='\[\e[31m\]$(__kube_ctx "[%s]")\[\e[m\]\[\e[33m\]$(__git_ps1 "[%s]")\
 GPG_TTY=$(tty)
 export GPG_TTY
 
-# history size
+# history configuration
 export HISTFILESIZE=1000000
 export HISTSIZE=10000
 export HISTTIMEFORMAT="%Y-%m-%d %T "
+export HISTIGNORE=' *'
+
 export PROMPT_COMMAND="history -a"
 export PROMPT_COMMAND="echo -ne '\033]0;\007';$PROMPT_COMMAND"
 
 [ -f "$HOME/.bcrc" ] && export BC_ENV_ARGS="-l $HOME/.bcrc"
-export LESS="-iMRFX"
+export LESS="-iMRX"
 
 if [ -d ~/.j ] ; then
     # shellcheck disable=SC1090
@@ -59,7 +61,7 @@ command -v flux > /dev/null 2>&1 && source <(flux completion bash)
 #eval "$(pyenv virtualenv-init -)"
 
 # consume SSH agent socket
-export SSH_AUTH_SOCK=/run/user/$(id -u)/ssh-agent.socket
+[[ -z "${SSH_AUTH_SOCK:-}" ]] && export SSH_AUTH_SOCK=/run/user/$(id -u)/ssh-agent.socket
 
 # shellcheck source=/dev/null
 [ -f ~/.bashrc_local ] && . ~/.bashrc_local
