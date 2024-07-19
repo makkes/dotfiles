@@ -6,12 +6,11 @@
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 500,
     "editor.minimap.enabled": false,
-    "workbench.editor.showTabs": false,
+    "workbench.editor.showTabs": "single",
     "workbench.tree.indent": 25,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": false,
-    "window.menuBarVisibility": "toggle",
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "go.testFlags": [
         "-v",
@@ -33,7 +32,6 @@
     ],
     "editor.quickSuggestionsDelay": 500,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Solarized Light",
     "security.workspace.trust.enabled": false,
     "editor.renderLineHighlight": "all",
     "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:,.<>/?'\"",
@@ -50,7 +48,7 @@
         "editor.insertSpaces": false,
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+            "source.organizeImports": "explicit"
         },
         "editor.suggest.snippetsPreventQuickSuggestions": false
     },
@@ -67,7 +65,6 @@
     "workbench.layoutControl.enabled": false,
     "arduino.useArduinoCli": true,
     "terminal.integrated.allowChords": false,
-    "terminal.integrated.fontSize": 10,
     "git.confirmSync": false,
     "git.openRepositoryInParentFolders": "never",
     "editor.wordWrap": "on",
@@ -79,4 +76,16 @@
     "editor.cursorBlinking": "phase",
     "editor.renderFinalNewline": "on",
     "files.insertFinalNewline": true,
+    "workbench.colorTheme": "Solarized Light",
+    "cmake.showOptionsMovedNotification": false,
+    "java.inlayHints.parameterNames.enabled": "none",
+    "editor.codeActionsOnSave": {},
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "window.commandCenter": false,
+    "gitlens.plusFeatures.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.currentLine.pullRequests.enabled": false,
+    "gitlens.codeLens.enabled": false,
 }
