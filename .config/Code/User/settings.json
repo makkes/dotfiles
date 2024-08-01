@@ -72,7 +72,6 @@
         "editor.wordWrap": "on"
     },
     "editor.wordWrapColumn": 120,
-    "window.zoomLevel": 1,
     "editor.cursorBlinking": "phase",
     "editor.renderFinalNewline": "on",
     "files.insertFinalNewline": true,
