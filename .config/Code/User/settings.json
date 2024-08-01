@@ -72,7 +72,7 @@
         "editor.wordWrap": "on"
     },
     "editor.wordWrapColumn": 120,
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
     "editor.cursorBlinking": "phase",
     "editor.renderFinalNewline": "on",
     "files.insertFinalNewline": true,
@@ -88,4 +88,7 @@
     "gitlens.currentLine.enabled": false,
     "gitlens.currentLine.pullRequests.enabled": false,
     "gitlens.codeLens.enabled": false,
+    "files.associations": {
+        ".envrc": "plaintext"
+    },
 }
