@@ -10,6 +10,7 @@ alias psgrep='ps -ef|grep'
 alias tf='terraform'
 alias init-pyenv='export PATH="/home/max/.pyenv/bin:$PATH" && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"'
 alias beep='ffplay -loglevel error -autoexit -nodisp $(find ~/sounds -name "beep.*" | head -1)> /dev/null'
+alias beeperr='ffplay -loglevel error -autoexit -nodisp $(find ~/sounds -name "error.*" | head -1)> /dev/null'
 
 # kubernetes/kind
 
