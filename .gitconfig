@@ -1,7 +1,7 @@
 [user]
     name = Max Jonas Werner
-    email = max.werner@associmates.eu
-    signingkey = 0981E8F011B08926D25BE530EB525E0F02B52140
+    email = max@associmates.eu
+    signingkey = ~/.ssh/id_ed25519.pub
 [color]
     ui = auto
 [push]
@@ -11,6 +11,7 @@
 [core]
     pager = less -FRX
     editor = vim
+    excludesFile = ~/.gitignore
 [bz]
     browser = firefox3
     firefox-profile = default
@@ -19,6 +20,8 @@
     pb = !git-prune-branches
 [credential]
     helper = cache
+[gpg]
+    format = ssh
 [commit]
     gpgsign = true
 [log]
@@ -41,3 +44,5 @@
     sort = version:refname
 [init]
 	defaultBranch = main
+[gpg "ssh"]
+	allowedSignersFile = /Users/max/.config/git/allowed_signers
