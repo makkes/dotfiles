@@ -1,7 +1,7 @@
 [user]
     name = Max Jonas Werner
     email = max@associmates.eu
-    signingkey = ~/.ssh/id_ed25519.pub
+    signingkey = 0981E8F011B08926D25BE530EB525E0F02B52140
 [color]
     ui = auto
 [push]
@@ -21,7 +21,7 @@
 [credential]
     helper = cache
 [gpg]
-    format = ssh
+    format = openpgp
 [commit]
     gpgsign = true
 [log]
