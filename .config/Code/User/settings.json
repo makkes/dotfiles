@@ -52,7 +52,6 @@
         },
         "editor.suggest.snippetsPreventQuickSuggestions": false
     },
-    "window.titleBarStyle": "custom",
     "idf.saveScope": 1,
     "idf.espIdfPath": "/home/max/dev/esp/esp-idf",
     "idf.pythonBinPath": "/home/max/.espressif/python_env/idf4.4_py3.10_env/bin/python",
@@ -67,7 +66,7 @@
     "terminal.integrated.allowChords": false,
     "git.confirmSync": false,
     "git.openRepositoryInParentFolders": "never",
-    "editor.wordWrap": "on",
+    "editor.wordWrap": "wordWrapColumn",
     "[markdown]": {
         "editor.wordWrap": "on"
     },
@@ -75,7 +74,7 @@
     "editor.cursorBlinking": "phase",
     "editor.renderFinalNewline": "on",
     "files.insertFinalNewline": true,
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "Solarized Dark",
     "cmake.showOptionsMovedNotification": false,
     "java.inlayHints.parameterNames.enabled": "none",
     "editor.codeActionsOnSave": {},
@@ -90,4 +89,14 @@
     "files.associations": {
         ".envrc": "plaintext"
     },
+    "workbench.externalBrowser": "true",
+    "makefile.configureOnOpen": true,
+    "workbench.preferredDarkColorTheme": "Solarized Dark",
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "window.autoDetectColorScheme": true,
+    "maven.terminal.useJavaHome": true,
+    "editor.suggest.selectionMode": "whenTriggerCharacter",
+    "editor.inlineSuggest.enabled": false,
+    "editor.inlineSuggest.syntaxHighlightingEnabled": true,
+    "editor.wrappingIndent": "deepIndent",
 }
