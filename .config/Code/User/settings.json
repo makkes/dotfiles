@@ -91,7 +91,7 @@
     },
     "workbench.externalBrowser": "true",
     "makefile.configureOnOpen": true,
-    "workbench.preferredDarkColorTheme": "Solarized Dark",
+    "workbench.preferredDarkColorTheme": "Rosé Pine (no italics)",
     "workbench.preferredLightColorTheme": "Solarized Light",
     "window.autoDetectColorScheme": true,
     "maven.terminal.useJavaHome": true,
@@ -99,4 +99,9 @@
     "editor.inlineSuggest.enabled": false,
     "editor.inlineSuggest.syntaxHighlightingEnabled": true,
     "editor.wrappingIndent": "deepIndent",
+    "vs-kubernetes":{
+        "disable-linters": [
+            "resource-limits"
+        ],
+    },
 }
