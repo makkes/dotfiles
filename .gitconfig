@@ -1,13 +1,16 @@
 [user]
     name = Max Jonas Werner
-    email = max@associmates.eu
+    email = max@coppersoft.com
     signingkey = 0981E8F011B08926D25BE530EB525E0F02B52140
 [color]
     ui = auto
 [push]
     default = current
+	autoSetupRemote = true
+	followTags = true
 [branch]
     autosetuprebase = always
+	sort = -committerdate
 [core]
     pager = less -FRX
     editor = vim
@@ -39,10 +42,21 @@
     process = git-lfs filter-process
     required = true
 [grep]
-    lineNumber = true
+    lineNumber = false
 [tag]
-    sort = version:refname
+	sort = version:refname
 [init]
 	defaultBranch = main
 [gpg "ssh"]
 	allowedSignersFile = /Users/max/.config/git/allowed_signers
+[column]
+	ui = never
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	renames = true
+	mnemonicPrefix = true
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
