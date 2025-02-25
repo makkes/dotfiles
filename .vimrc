@@ -45,11 +45,6 @@ nnoremap <C-k> :tabnext<CR>
 nnoremap <silent> <F9> :TagbarOpen jfc<CR>
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
-" use Enter and Shift-Enter in normal mode to
-" insert new lines without entering insert mode.
-map <Enter> o<ESC>
-map <S-Enter> O<ESC>
-
 " Highlighting
 hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=magenta
