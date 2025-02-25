@@ -22,7 +22,7 @@ export LS_COLORS='rs=0:di=01;34:ln=00;36:mh=00:pi=40;33:so=00;35:do=00;35:bd=40;
 
 __kube_ctx() {
     [ -r "${PWD}" ] || return
-    [ -x $(command -v kubectl) ] || return
+    [ -x "$(command -v kubectl)" ] || return
     ctx=$(kubectl config current-context 2>/dev/null | cut -c1-20)
     [ -z "$ctx" ] && return 0
     # shellcheck disable=SC2059
@@ -54,6 +54,7 @@ fi
 command -v kubectl > /dev/null 2>&1 && source <(kubectl completion bash)
 complete -o default -F __start_kubectl k
 
+# shellcheck source=/dev/null
 command -v flux > /dev/null 2>&1 && source <(flux completion bash)
 
 #export PATH="/home/max/.pyenv/bin:$PATH"
@@ -61,12 +62,12 @@ command -v flux > /dev/null 2>&1 && source <(flux completion bash)
 #eval "$(pyenv virtualenv-init -)"
 
 # consume SSH agent socket
-[[ -z "${SSH_AUTH_SOCK:-}" ]] && export SSH_AUTH_SOCK=/run/user/$(id -u)/ssh-agent.socket
+[[ -z "${SSH_AUTH_SOCK:-}" ]] && SSH_AUTH_SOCK=/run/user/$(id -u)/ssh-agent.socket && export SSH_AUTH_SOCK
 
 # shellcheck source=/dev/null
 [ -f ~/.bashrc_local ] && . ~/.bashrc_local
 
-. $HOME/.asdf/asdf.sh
+. "$HOME/.asdf/asdf.sh"
 eval "$(asdf exec direnv hook bash)"
 
 # If not running interactively, do not do anything
@@ -87,3 +88,4 @@ eval "$(asdf exec direnv hook bash)"
 # disable scroll lock on CTRL+S
 stty -ixon
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/bashrc"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
